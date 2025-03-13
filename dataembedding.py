@@ -19,7 +19,7 @@ text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(documents)
 
 model_name = "sentence-transformers/all-mpnet-base-v2"
-model_kwargs = {'device': 'cpu'}
+model_kwargs = {'device': 'gpu'}
 encode_kwargs = {'normalize_embeddings': False}
 embeddings = HuggingFaceEmbeddings(
     model_name=model_name,
@@ -27,8 +27,5 @@ embeddings = HuggingFaceEmbeddings(
     encode_kwargs=encode_kwargs
 )
 
-# db = Neo4jVector.from_documents(
-#     docs, embeddings, url=url, username=username, password=password)
-
-# query = "What did the president say about Ketanji Brown Jackson"
-# docs_with_score = db.similarity_search_with_score(query, k=2)
+db = Neo4jVector.from_documents(
+    docs, embeddings, url=url, username=username, password=password)
