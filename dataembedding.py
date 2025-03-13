@@ -1,3 +1,4 @@
+import os
 from dotenv import load_dotenv
 from langchain_neo4j import Neo4jVector
 from langchain_core.documents import Document
@@ -5,7 +6,13 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 
-loader = TextLoader("../../modules/state_of_the_union.txt")
+load_dotenv()
+
+loader = TextLoader("facts.txt")
+
+url = os.getenv("NEO4J_URL")
+username = os.getenv("NEO4J_USER")
+password = os.getenv("NEO4J_PASSWORD")
 
 documents = loader.load()
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
@@ -20,8 +27,8 @@ embeddings = HuggingFaceEmbeddings(
     encode_kwargs=encode_kwargs
 )
 
-db = Neo4jVector.from_documents(
-    docs, embeddings, url=url, username=username, password=password)
+# db = Neo4jVector.from_documents(
+#     docs, embeddings, url=url, username=username, password=password)
 
-query = "What did the president say about Ketanji Brown Jackson"
-docs_with_score = db.similarity_search_with_score(query, k=2)
+# query = "What did the president say about Ketanji Brown Jackson"
+# docs_with_score = db.similarity_search_with_score(query, k=2)
