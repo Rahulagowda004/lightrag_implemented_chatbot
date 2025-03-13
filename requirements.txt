@@ -4,3 +4,4 @@ langchain-openai>=0.0.5
 langchain-neo4j>=0.0.5
 openai>=1.12.0
 python-dotenv>=1.0.0
+lightrag-hku==1.2.5
