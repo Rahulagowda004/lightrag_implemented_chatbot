@@ -19,7 +19,7 @@ text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(documents)
 
 model_name = "sentence-transformers/all-mpnet-base-v2"
-model_kwargs = {'device': 'gpu'}
+model_kwargs = {'device': 'cpu'}
 encode_kwargs = {'normalize_embeddings': False}
 embeddings = HuggingFaceEmbeddings(
     model_name=model_name,
