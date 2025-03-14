@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # vectorized data
-.vectorized_data/
+vectorized_data/
