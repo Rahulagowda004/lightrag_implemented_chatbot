@@ -113,7 +113,7 @@ async def main():
 
         # Test queries
         test_queries = [
-            "what is your age?"
+            "Why should i track daily expense?"
         ]
 
         for query in test_queries:
@@ -133,11 +133,17 @@ async def main():
                     response_text = str(result) if result else "No response generated"
                     print(f"Mode {mode}: {response_text}")
                     
-                    # Store in Neo4j with error handling
+                    
                     try:
-                        await store_response_in_neo4j(query, response_text, mode)
+                        rag.insert(response_text)
+                        
                     except Exception as e:
-                        print(f"Failed to store in Neo4j: {str(e)}")
+                        print(f"Failed to store via lightrag: {str(e)}")
+                    # Store in Neo4j with error handling
+                    # try:
+                    #     await store_response_in_neo4j(query, response_text, mode)
+                    # except Exception as e:
+                    #     print(f"Failed to store in Neo4j: {str(e)}")
                         
                 except Exception as e:
                     print(f"Error in {mode} mode: {str(e)}")
