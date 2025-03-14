@@ -41,7 +41,7 @@ async def initialize_rag():
             raise
 
     rag = LightRAG(
-        working_dir="R:/lightrag_implemented_chatbot",
+        working_dir="vectorized_data",
         llm_model_func=llm_wrapper,
         embedding_func=EmbeddingFunc(
             embedding_dim=384,
