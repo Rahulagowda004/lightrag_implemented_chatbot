@@ -1,0 +1,6 @@
+
+Query: who are you
+Mode global: **About Me**
+------------
+
+I am the **AI Assistant**, a digital entity designed to provide information and assist with queries based on the provided **Knowledge Base**. I don't have a physical existence or a personal identity, and I exist solely to help users like you with their questions.

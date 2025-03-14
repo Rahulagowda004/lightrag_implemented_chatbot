@@ -7,7 +7,6 @@ from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.utils import setup_logger
 from lightrag import LightRAG, QueryParam
 from sentence_transformers import SentenceTransformer
-from neo4j import GraphDatabase
 from datetime import datetime
 from typing import Dict, Any
 
@@ -65,40 +64,6 @@ async def initialize_rag():
     await initialize_pipeline_status()
     return rag
 
-async def store_response_in_neo4j(query: str, response: str, mode: str):
-    driver = GraphDatabase.driver(
-        os.environ["NEO4J_URI"],
-        auth=(os.environ["NEO4J_USERNAME"], os.environ["NEO4J_PASSWORD"]),
-        database=os.environ["NEO4J_DATABASE"]
-    )
-    
-    try:
-        with driver.session() as session:
-            # Create timestamp for the interaction
-            timestamp = datetime.now().isoformat()
-            
-            # Store the interaction with proper error handling
-            result = session.run("""
-                CREATE (q:UserQuery {text: $query, timestamp: datetime($timestamp)})
-                CREATE (r:AIResponse {text: $response, mode: $mode, timestamp: datetime($timestamp)})
-                CREATE (q)-[:RESPONDED_WITH {timestamp: datetime($timestamp)}]->(r)
-                RETURN q, r
-            """, {
-                'query': query,
-                'response': str(response),
-                'mode': mode,
-                'timestamp': timestamp
-            })
-            
-            # Verify storage
-            summary = result.consume()
-            print(f"Stored interaction in Neo4j: {summary.counters}")
-            
-    except Exception as e:
-        print(f"Neo4j Storage Error: {str(e)}")
-    finally:
-        driver.close()
-
 async def main():
     try:
         # Read content from facts.txt
@@ -113,12 +78,12 @@ async def main():
 
         # Test queries
         test_queries = [
-            "Why should i track daily expense?"
+            "who are you"
         ]
 
         for query in test_queries:
             print(f"\nQuery: {query}")
-            for mode in ["local", "global"]:
+            for mode in ["global"]:
                 try:
                     # Update query parameters
                     result = await rag.aquery(
@@ -128,22 +93,18 @@ async def main():
                             response_type="Bullet Points",
                         )
                     )
-                    
+                
                     # Convert result to string if it's not already
                     response_text = str(result) if result else "No response generated"
                     print(f"Mode {mode}: {response_text}")
                     
-                    
-                    try:
-                        rag.insert(response_text)
+                    with open("output.txt", "a") as f:
+                        f.write(f"\nQuery: {query}\nMode {mode}: {response_text}\n")
                         
+                    try:
+                        rag.insert(response_text)        
                     except Exception as e:
                         print(f"Failed to store via lightrag: {str(e)}")
-                    # Store in Neo4j with error handling
-                    # try:
-                    #     await store_response_in_neo4j(query, response_text, mode)
-                    # except Exception as e:
-                    #     print(f"Failed to store in Neo4j: {str(e)}")
                         
                 except Exception as e:
                     print(f"Error in {mode} mode: {str(e)}")
