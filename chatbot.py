@@ -1,8 +1,14 @@
 import asyncio
 from lightrag import LightRAG
+<<<<<<< HEAD
 from lightrag.llm.llama_index_impl import llama_index_embed
 from llama_index.embeddings.groq import GroqEmbedding  # Replace OpenAIEmbedding
 from llama_index.llms.groq import Groq  # Replace OpenAI
+=======
+from lightrag.llm.llama_index_impl import llama_index_complete_if_cache, llama_index_embed
+from llama_index.embeddings.
+from llama_index.llms.groq import Groq
+>>>>>>> 5ad9460b92ad24e108f8af079eb23fd4baaf4ff4
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.utils import setup_logger
 
