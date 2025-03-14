@@ -4285,3 +4285,973 @@
 2025-03-14 21:37:12,446 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1558
 2025-03-14 21:37:27,265 - lightrag - INFO - Inserting 1 records to llm_response_cache
 2025-03-14 21:37:27,265 - lightrag - INFO - Process 26204 KV writting 6 records to llm_response_cache
+2025-03-14 21:40:19,888 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000282D965E2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000002828A31A600>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002828A33AF20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000282D9147560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:40:22,100 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:40:22,200 - lightrag - INFO - Process 16604 KV load full_docs with 1 records
+2025-03-14 21:40:22,205 - lightrag - INFO - Process 16604 KV load text_chunks with 1 records
+2025-03-14 21:40:22,248 - lightrag - INFO - Process 16604 KV load llm_response_cache with 6 records
+2025-03-14 21:40:22,272 - lightrag - INFO - Process 16604 doc status load doc_status with 1 records
+2025-03-14 21:40:22,274 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:40:22,276 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:40:22,277 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:40:22,278 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:40:22,278 - lightrag - INFO - No documents to process
+2025-03-14 21:40:22,280 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:query)
+2025-03-14 21:40:22,280 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:keywords)
+2025-03-14 21:40:22,987 - lightrag - DEBUG - [kg_query]Prompt Tokens: 414
+2025-03-14 21:40:23,977 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 21:40:23,978 - lightrag - DEBUG - High-level keywords: ['Finance']
+2025-03-14 21:40:23,978 - lightrag - DEBUG - Low-level  keywords: ['Money management', 'Investing', 'Banking', 'Economy']
+2025-03-14 21:40:23,978 - lightrag - INFO - Process 16604 buidling query context...
+2025-03-14 21:40:23,979 - lightrag - INFO - Query nodes: Money management, Investing, Banking, Economy, top_k: 60, cosine: 0.2
+2025-03-14 21:40:24,080 - lightrag - INFO - Process 16604 reloading entities due to update by another process
+2025-03-14 21:40:25,588 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 21:40:25,590 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 21:40:25,600 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,655 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 21:40:25,657 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 21:40:25,658 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 21:40:25,660 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 21:40:25,662 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,664 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 21:40:25,666 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 21:40:25,679 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,680 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,682 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,684 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,685 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:25,687 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,093 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,150 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,170 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,171 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,173 - lightrag - DEBUG - Result: {'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, involving tracking and managing costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,173 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, involving tracking and managing costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,174 - lightrag - DEBUG - Result: {'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of regularly assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,175 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of regularly assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,176 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,177 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,178 - lightrag - DEBUG - Result: {'keywords': 'expense categorization, budgeting', 'weight': 6.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, involving essential costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,178 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense categorization, budgeting', 'weight': 6.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, involving essential costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,180 - lightrag - DEBUG - Result: {'keywords': 'expense categorization, leisure activities', 'weight': 5.0, 'description': 'Leisure activities are a type of expense that can be managed through budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,180 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense categorization, leisure activities', 'weight': 5.0, 'description': 'Leisure activities are a type of expense that can be managed through budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,188 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,266 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,266 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,267 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,268 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,269 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,269 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,270 - lightrag - DEBUG - Result: {'keywords': 'financial security, goal-achievement', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,270 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, goal-achievement', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,271 - lightrag - DEBUG - Result: {'keywords': 'savings, emergency preparedness', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,272 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'savings, emergency preparedness', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,273 - lightrag - DEBUG - Result: {'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be used for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,273 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be used for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,274 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,275 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,276 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,276 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:26,277 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,597 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,603 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 21:40:26,604 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 21:40:26,615 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 21:40:26,621 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,625 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,633 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,635 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-14 21:40:26,637 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,639 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,641 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,670 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,673 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 21:40:26,674 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,678 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 21:40:26,681 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 21:40:26,684 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 21:40:26,688 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 21:40:26,692 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 21:40:26,695 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 21:40:26,697 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 21:40:26,700 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 21:40:26,703 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 21:40:26,707 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,711 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,713 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,716 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,720 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,722 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,725 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,728 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,757 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,780 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,797 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:26,799 - lightrag - DEBUG - Truncate relations from 13 to 13 (max tokens:4000)
+2025-03-14 21:40:26,799 - lightrag - DEBUG - Truncate entities from 8 to 8 (max tokens:4000)
+2025-03-14 21:40:26,800 - lightrag - INFO - Local query uses 8 entites, 13 relations, 1 chunks
+2025-03-14 21:40:26,803 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1147
+2025-03-14 21:40:28,066 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 21:40:28,066 - lightrag - INFO - Process 16604 KV writting 8 records to llm_response_cache
+2025-03-14 21:40:28,068 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-14 21:40:28,069 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-14 21:40:28,070 - lightrag - DEBUG - [kg_query]Prompt Tokens: 414
+2025-03-14 21:40:28,375 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 21:40:28,376 - lightrag - DEBUG - High-level keywords: ['Finance']
+2025-03-14 21:40:28,376 - lightrag - DEBUG - Low-level  keywords: ['Money management', 'Investing', 'Banking', 'Economy']
+2025-03-14 21:40:28,376 - lightrag - INFO - Process 16604 buidling query context...
+2025-03-14 21:40:28,377 - lightrag - INFO - Query edges: Finance, top_k: 60, cosine: 0.2
+2025-03-14 21:40:28,391 - lightrag - INFO - Process 16604 reloading relationships due to update by another process
+2025-03-14 21:40:28,466 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,467 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,470 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,471 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,474 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,475 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,476 - lightrag - DEBUG - Result: {'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of regularly assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,478 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of regularly assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,480 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,483 - lightrag - DEBUG - Result: {'keywords': 'expense categorization, budgeting', 'weight': 6.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, involving essential costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,484 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense categorization, budgeting', 'weight': 6.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, involving essential costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,488 - lightrag - DEBUG - Result: {'keywords': 'expense categorization, leisure activities', 'weight': 5.0, 'description': 'Leisure activities are a type of expense that can be managed through budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,489 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense categorization, leisure activities', 'weight': 5.0, 'description': 'Leisure activities are a type of expense that can be managed through budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,490 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,493 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,494 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,496 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,499 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,500 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,502 - lightrag - DEBUG - Result: {'keywords': 'financial security, goal-achievement', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,503 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, goal-achievement', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,504 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,505 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,507 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,512 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,515 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,518 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,521 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,525 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,529 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,532 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,535 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,539 - lightrag - DEBUG - Result: {'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be used for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,540 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be used for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,542 - lightrag - DEBUG - Result: {'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, involving tracking and managing costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,543 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, involving tracking and managing costs.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 21:40:28,557 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,559 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,569 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,599 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,600 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,602 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,603 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,604 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,606 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,607 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,608 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,609 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,638 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 21:40:28,679 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 21:40:28,680 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 21:40:28,682 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 21:40:28,682 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-14 21:40:28,683 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 21:40:28,684 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 21:40:28,685 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 21:40:28,686 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 21:40:28,687 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 21:40:28,691 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 21:40:28,693 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 21:40:28,694 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 21:40:28,695 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 21:40:28,697 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,698 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,700 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,701 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,702 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,703 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,705 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,706 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,708 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,709 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,711 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,712 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,713 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 21:40:28,714 - lightrag - DEBUG - Truncate entities from 13 to 13 (max tokens:4000)
+2025-03-14 21:40:28,715 - lightrag - INFO - Global query uses 13 entites, 12 relations, 1 chunks
+2025-03-14 21:40:28,719 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1503
+2025-03-14 21:40:30,392 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 21:40:30,392 - lightrag - INFO - Process 16604 KV writting 10 records to llm_response_cache
+2025-03-14 21:43:58,318 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x0000027EF1AAE2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x0000027EA575BAA0>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x0000027EA54F19E0>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x0000027EF1597560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:43:59,653 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:43:59,678 - lightrag - INFO - Process 4828 KV load full_docs with 1 records
+2025-03-14 21:43:59,680 - lightrag - INFO - Process 4828 KV load text_chunks with 1 records
+2025-03-14 21:43:59,704 - lightrag - INFO - Process 4828 KV load llm_response_cache with 10 records
+2025-03-14 21:43:59,706 - lightrag - INFO - Process 4828 doc status load doc_status with 1 records
+2025-03-14 21:43:59,709 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:43:59,710 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:43:59,711 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:43:59,712 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:43:59,713 - lightrag - INFO - No documents to process
+2025-03-14 21:43:59,716 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 21:43:59,720 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 21:46:15,386 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000278698AE3E0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x0000027817F4CF50>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002781D309BC0>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000278694036A0>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:46:16,938 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:46:16,961 - lightrag - INFO - Process 18868 KV load full_docs with 1 records
+2025-03-14 21:46:16,963 - lightrag - INFO - Process 18868 KV load text_chunks with 1 records
+2025-03-14 21:46:16,968 - lightrag - INFO - Process 18868 KV load llm_response_cache with 10 records
+2025-03-14 21:46:16,969 - lightrag - INFO - Process 18868 doc status load doc_status with 1 records
+2025-03-14 21:46:16,972 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:46:16,973 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:46:16,974 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:46:16,974 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:46:16,975 - lightrag - INFO - No documents to process
+2025-03-14 21:46:18,127 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 21:46:18,129 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 21:46:18,567 - lightrag - DEBUG - Finalized Storages
+2025-03-14 21:47:49,323 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000235208DE340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x0000023552332F30>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000235540A9D00>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x0000023520433600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:47:50,597 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:47:50,620 - lightrag - INFO - Process 12144 KV load full_docs with 1 records
+2025-03-14 21:47:50,622 - lightrag - INFO - Process 12144 KV load text_chunks with 1 records
+2025-03-14 21:47:50,627 - lightrag - INFO - Process 12144 KV load llm_response_cache with 10 records
+2025-03-14 21:47:50,629 - lightrag - INFO - Process 12144 doc status load doc_status with 1 records
+2025-03-14 21:47:50,631 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:47:50,632 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:47:50,632 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:47:50,633 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:47:50,633 - lightrag - INFO - No documents to process
+2025-03-14 21:47:51,729 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 21:47:51,960 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 21:53:45,111 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000002A6716EE2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000002A6225C5670>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002A62250AF20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_query_response': True, 'enable_graph_store': True},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000002A6711D7560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:53:47,010 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:53:47,048 - lightrag - INFO - Process 24056 KV load full_docs with 1 records
+2025-03-14 21:53:47,050 - lightrag - INFO - Process 24056 KV load text_chunks with 1 records
+2025-03-14 21:53:47,057 - lightrag - INFO - Process 24056 KV load llm_response_cache with 10 records
+2025-03-14 21:53:47,060 - lightrag - INFO - Process 24056 doc status load doc_status with 1 records
+2025-03-14 21:53:47,063 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:53:47,065 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:53:47,066 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:53:47,067 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:53:47,068 - lightrag - INFO - No documents to process
+2025-03-14 21:54:27,470 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000247E87AE2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000002479A815DF0>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002479978AF20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_query_response': True, 'enable_graph_store': True},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000247E829B560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:54:29,203 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:54:29,217 - lightrag - INFO - Process 26784 KV load full_docs with 1 records
+2025-03-14 21:54:29,218 - lightrag - INFO - Process 26784 KV load text_chunks with 1 records
+2025-03-14 21:54:29,221 - lightrag - INFO - Process 26784 KV load llm_response_cache with 10 records
+2025-03-14 21:54:29,223 - lightrag - INFO - Process 26784 doc status load doc_status with 1 records
+2025-03-14 21:54:29,225 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:54:29,225 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:54:29,226 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:54:29,226 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:54:29,227 - lightrag - INFO - No documents to process
+2025-03-14 21:54:29,227 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 21:54:29,228 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 21:57:45,298 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x0000025CB05BE2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x0000025CE2225D30>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x0000025CE21BEF20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x0000025CB00A7560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:57:46,805 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:57:46,825 - lightrag - INFO - Process 15916 KV load full_docs with 1 records
+2025-03-14 21:57:46,827 - lightrag - INFO - Process 15916 KV load text_chunks with 1 records
+2025-03-14 21:57:46,831 - lightrag - INFO - Process 15916 KV load llm_response_cache with 10 records
+2025-03-14 21:57:46,833 - lightrag - INFO - Process 15916 doc status load doc_status with 1 records
+2025-03-14 21:57:46,835 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:57:46,836 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:57:46,836 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:57:46,837 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:57:46,837 - lightrag - INFO - No documents to process
+2025-03-14 21:58:18,090 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000148BCADE2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x00000148EE758C20>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000148EE6EAF20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000148BC5CB560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 21:58:19,730 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 21:58:19,746 - lightrag - INFO - Process 23840 KV load full_docs with 1 records
+2025-03-14 21:58:19,748 - lightrag - INFO - Process 23840 KV load text_chunks with 1 records
+2025-03-14 21:58:19,752 - lightrag - INFO - Process 23840 KV load llm_response_cache with 10 records
+2025-03-14 21:58:19,753 - lightrag - INFO - Process 23840 doc status load doc_status with 1 records
+2025-03-14 21:58:19,755 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:58:19,756 - lightrag - DEBUG - Initialized Storages
+2025-03-14 21:58:19,756 - lightrag - INFO - No new unique documents were found.
+2025-03-14 21:58:19,757 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 21:58:19,757 - lightrag - INFO - No documents to process
+2025-03-14 21:58:19,759 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 21:58:19,760 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 22:01:44,119 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000153837A22A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x00000153B6F48860>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000153B6F41620>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000153832EB560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 22:01:45,376 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 22:01:45,391 - lightrag - INFO - Process 12440 KV load full_docs with 1 records
+2025-03-14 22:01:45,392 - lightrag - INFO - Process 12440 KV load text_chunks with 1 records
+2025-03-14 22:01:45,397 - lightrag - INFO - Process 12440 KV load llm_response_cache with 10 records
+2025-03-14 22:01:45,398 - lightrag - INFO - Process 12440 doc status load doc_status with 1 records
+2025-03-14 22:01:45,401 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:01:45,402 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:01:45,402 - lightrag - INFO - No new unique documents were found.
+2025-03-14 22:01:45,403 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 22:01:45,403 - lightrag - INFO - No documents to process
+2025-03-14 22:02:18,681 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000001D2AF3A22A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000001D2E2D0FE60>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000001D2E2B81620>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000001D2AEEEB560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 22:02:19,828 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 22:02:19,845 - lightrag - INFO - Process 3080 KV load full_docs with 1 records
+2025-03-14 22:02:19,846 - lightrag - INFO - Process 3080 KV load text_chunks with 1 records
+2025-03-14 22:02:19,849 - lightrag - INFO - Process 3080 KV load llm_response_cache with 10 records
+2025-03-14 22:02:19,850 - lightrag - INFO - Process 3080 doc status load doc_status with 1 records
+2025-03-14 22:02:19,852 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:02:19,852 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:02:19,853 - lightrag - INFO - No new unique documents were found.
+2025-03-14 22:02:19,853 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 22:02:19,854 - lightrag - INFO - No documents to process
+2025-03-14 22:02:19,856 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 22:02:19,861 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 22:04:12,056 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x0000026491AA22A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x00000264C53C7E60>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000264C5231620>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000264915EB560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 22:04:13,216 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 22:04:13,232 - lightrag - INFO - Process 16456 KV load full_docs with 1 records
+2025-03-14 22:04:13,234 - lightrag - INFO - Process 16456 KV load text_chunks with 1 records
+2025-03-14 22:04:13,237 - lightrag - INFO - Process 16456 KV load llm_response_cache with 10 records
+2025-03-14 22:04:13,238 - lightrag - INFO - Process 16456 doc status load doc_status with 1 records
+2025-03-14 22:04:13,239 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:04:13,240 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:04:13,240 - lightrag - INFO - No new unique documents were found.
+2025-03-14 22:04:13,240 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 22:04:13,241 - lightrag - INFO - No documents to process
+2025-03-14 22:04:13,242 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:query)
+2025-03-14 22:04:13,243 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:keywords)
+2025-03-14 22:04:13,742 - lightrag - DEBUG - [kg_query]Prompt Tokens: 415
+2025-03-14 22:04:14,603 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 22:04:14,603 - lightrag - DEBUG - High-level keywords: ['Demographics', 'Personal information']
+2025-03-14 22:04:14,604 - lightrag - DEBUG - Low-level  keywords: ['Age']
+2025-03-14 22:04:14,604 - lightrag - INFO - Process 16456 buidling query context...
+2025-03-14 22:04:14,604 - lightrag - INFO - Query nodes: Age, top_k: 60, cosine: 0.2
+2025-03-14 22:04:14,696 - lightrag - INFO - Process 16456 reloading entities due to update by another process
+2025-03-14 22:04:14,700 - lightrag - INFO - Process 16456 KV writting 11 records to llm_response_cache
+2025-03-14 22:04:14,704 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-14 22:04:14,704 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-14 22:04:14,706 - lightrag - DEBUG - [kg_query]Prompt Tokens: 415
+2025-03-14 22:04:14,973 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 22:04:14,973 - lightrag - DEBUG - High-level keywords: ['Demographics', 'Personal information']
+2025-03-14 22:04:14,974 - lightrag - DEBUG - Low-level  keywords: ['Age']
+2025-03-14 22:04:14,974 - lightrag - INFO - Process 16456 buidling query context...
+2025-03-14 22:04:14,974 - lightrag - INFO - Query edges: Demographics, Personal information, top_k: 60, cosine: 0.2
+2025-03-14 22:04:14,992 - lightrag - INFO - Process 16456 reloading relationships due to update by another process
+2025-03-14 22:04:16,915 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 22:04:16,916 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 22:04:16,917 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 22:04:16,982 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 22:04:16,985 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 22:04:17,051 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 22:04:17,056 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 22:04:17,522 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 22:04:17,523 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 22:04:17,523 - lightrag - DEBUG - Truncate entities from 2 to 2 (max tokens:4000)
+2025-03-14 22:04:17,524 - lightrag - INFO - Global query uses 2 entites, 1 relations, 1 chunks
+2025-03-14 22:04:17,525 - lightrag - DEBUG - [kg_query]Prompt Tokens: 531
+2025-03-14 22:04:17,901 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 22:04:17,901 - lightrag - INFO - Process 16456 KV writting 13 records to llm_response_cache
+2025-03-14 22:06:38,206 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000002A288AA2340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000002A2BA6DA330>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002A2BC2616C0>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000002A2885EB600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 22:06:39,453 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 22:06:39,470 - lightrag - INFO - Process 15032 KV load full_docs with 1 records
+2025-03-14 22:06:39,472 - lightrag - INFO - Process 15032 KV load text_chunks with 1 records
+2025-03-14 22:06:39,490 - lightrag - INFO - Process 15032 KV load llm_response_cache with 13 records
+2025-03-14 22:06:39,492 - lightrag - INFO - Process 15032 doc status load doc_status with 1 records
+2025-03-14 22:06:39,494 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:06:39,495 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:06:39,496 - lightrag - INFO - No new unique documents were found.
+2025-03-14 22:06:39,497 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 22:06:39,498 - lightrag - INFO - No documents to process
+2025-03-14 22:07:25,488 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000002069ACA2340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x00000206CE4E9C40>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000206CE4316C0>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000002069A7EB600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 22:07:27,032 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 22:07:27,047 - lightrag - INFO - Process 16216 KV load full_docs with 1 records
+2025-03-14 22:07:27,048 - lightrag - INFO - Process 16216 KV load text_chunks with 1 records
+2025-03-14 22:07:27,051 - lightrag - INFO - Process 16216 KV load llm_response_cache with 13 records
+2025-03-14 22:07:27,053 - lightrag - INFO - Process 16216 doc status load doc_status with 1 records
+2025-03-14 22:07:27,054 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:07:27,054 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:07:27,055 - lightrag - INFO - No new unique documents were found.
+2025-03-14 22:07:27,055 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 22:07:27,055 - lightrag - INFO - No documents to process
+2025-03-14 22:07:27,056 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:query)
+2025-03-14 22:07:27,056 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:keywords)
+2025-03-14 22:07:27,056 - lightrag - DEBUG - High-level keywords: ['Demographics', 'Personal information']
+2025-03-14 22:07:27,056 - lightrag - DEBUG - Low-level  keywords: ['Age']
+2025-03-14 22:07:27,056 - lightrag - INFO - Process 16216 buidling query context...
+2025-03-14 22:07:27,057 - lightrag - INFO - Query nodes: Age, top_k: 60, cosine: 0.2
+2025-03-14 22:07:27,085 - lightrag - INFO - Process 16216 reloading entities due to update by another process
+2025-03-14 22:07:28,428 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 22:08:36,089 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x0000023636DA2340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000002366A803C20>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002366A5616C0>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000236368EB600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 22:08:37,537 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 22:08:37,551 - lightrag - INFO - Process 16720 KV load full_docs with 1 records
+2025-03-14 22:08:37,553 - lightrag - INFO - Process 16720 KV load text_chunks with 1 records
+2025-03-14 22:08:37,556 - lightrag - INFO - Process 16720 KV load llm_response_cache with 13 records
+2025-03-14 22:08:37,557 - lightrag - INFO - Process 16720 doc status load doc_status with 1 records
+2025-03-14 22:08:37,558 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:08:37,559 - lightrag - DEBUG - Initialized Storages
+2025-03-14 22:08:37,560 - lightrag - INFO - No new unique documents were found.
+2025-03-14 22:08:37,560 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 22:08:37,561 - lightrag - INFO - No documents to process
+2025-03-14 22:08:37,562 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:query)
+2025-03-14 22:08:37,562 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:keywords)
+2025-03-14 22:08:37,562 - lightrag - DEBUG - High-level keywords: ['Demographics', 'Personal information']
+2025-03-14 22:08:37,563 - lightrag - DEBUG - Low-level  keywords: ['Age']
+2025-03-14 22:08:37,563 - lightrag - INFO - Process 16720 buidling query context...
+2025-03-14 22:08:37,563 - lightrag - INFO - Query nodes: Age, top_k: 60, cosine: 0.2
+2025-03-14 22:08:37,590 - lightrag - INFO - Process 16720 reloading entities due to update by another process
+2025-03-14 22:08:38,639 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
