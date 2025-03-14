@@ -6,6 +6,7 @@ from llama_index.llms.groq import Groq
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.utils import setup_logger
 from lightrag import LightRAG, QueryParam
+from sentence_transformers import SentenceTransformer
 
 # Enable debug logging
 setup_logger("lightrag", level="DEBUG")
@@ -15,6 +16,17 @@ os.environ["NEO4J_URI"] = "neo4j+s://bc33095c.databases.neo4j.io"
 os.environ["NEO4J_USERNAME"] = "neo4j"
 os.environ["NEO4J_PASSWORD"] = "BpWzLNXymZI2invXPHkzOH-2DM_Vv5aQxdHXcCP2nAs"
 os.environ["NEO4J_DATABASE"] = "neo4j"
+
+class EmbeddingWrapper:
+    def __init__(self):
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.embedding_dim = 384  # This model's output dimension
+
+    async def __call__(self, texts):
+        if isinstance(texts, str):
+            texts = [texts]
+        embeddings = self.model.encode(texts)
+        return embeddings.tolist()
 
 async def initialize_rag():
     llm = Groq(model="llama3-70b-8192", api_key="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")
@@ -31,12 +43,13 @@ async def initialize_rag():
             raise
 
     rag = LightRAG(
-        working_dir="graph_data",
+        working_dir="vectorized_data",
         llm_model_func=llm_wrapper,
         graph_storage="Neo4JStorage",
-        vector_storage=None,  # Disable vector storage
+        vector_storage="NanoVectorDBStorage",  # Use NanoVectorDB as it's simple and requires no setup
+        embedding_func=EmbeddingWrapper(),
         addon_params={
-            "use_vector_storage": False  # Explicitly disable vector storage usage
+            "use_vector_storage": True  # Enable vector storage usage
         }
     )
 
@@ -63,12 +76,11 @@ async def main():
 
         for query in test_queries:
             print(f"\nQuery: {query}")
-            # Only use global and local modes since they rely on graph knowledge
+            # Test both modes with vector search enabled
             for mode in ["local", "global"]:
                 try:
                     result = await rag.aquery(query, param=QueryParam(
-                        mode=mode,
-                        use_vector_search=False  # Explicitly disable vector search in queries
+                        mode=mode# Enable vector search in queries
                     ))
                     print(f"Mode {mode}: {result}")
                 except Exception as e:
