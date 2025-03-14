@@ -1408,3 +1408,1366 @@
 2025-03-14 18:28:30,693 - lightrag - DEBUG - [kg_query]Prompt Tokens: 2664
 2025-03-14 18:28:57,553 - lightrag - INFO - Inserting 1 records to llm_response_cache
 2025-03-14 18:28:57,554 - lightrag - INFO - Process 5420 KV writting 9 records to llm_response_cache
+2025-03-14 19:35:08,052 - lightrag - INFO - Creating working directory vectorized_data
+2025-03-14 19:35:08,054 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000001D173C8E340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 8192, 'func': <function initialize_rag.<locals>.<lambda> at 0x000001D125D6AC00>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000001D125D6AA20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'language': 'English'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000001D173777600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 19:35:09,683 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 19:35:09,702 - lightrag - INFO - Process 11980 KV load full_docs with 0 records
+2025-03-14 19:35:09,703 - lightrag - INFO - Process 11980 KV load text_chunks with 0 records
+2025-03-14 19:35:09,705 - lightrag - INFO - Process 11980 KV load llm_response_cache with 0 records
+2025-03-14 19:35:09,706 - lightrag - INFO - Process 11980 doc status load doc_status with 0 records
+2025-03-14 19:35:09,711 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:35:09,712 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:35:09,712 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-14 19:35:09,714 - lightrag - INFO - Process 11980 doc status writting 1 records to doc_status
+2025-03-14 19:35:09,717 - lightrag - INFO - Stored 1 new unique documents
+2025-03-14 19:35:09,718 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 19:35:09,721 - lightrag - INFO - Number of batches to process: 1.
+2025-03-14 19:35:09,722 - lightrag - INFO - Start processing batch 1 of 1.
+2025-03-14 19:35:10,501 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-14 19:35:10,502 - lightrag - INFO - Process 11980 doc status writting 1 records to doc_status
+2025-03-14 19:35:10,503 - lightrag - INFO - Inserting 1 to chunks
+2025-03-14 19:35:10,504 - lightrag - INFO - Inserting 1 records to full_docs
+2025-03-14 19:35:10,505 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-03-14 19:35:10,809 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-14 19:35:11,308 - lightrag - INFO - Process 11980 reloading chunks due to update by another process
+2025-03-14 19:35:13,094 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:35:13,096 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-14 19:35:23,103 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:35:23,104 - lightrag - INFO -   Chunk 1/1: extracted 14 entities and 13 relationships (deduplicated)
+2025-03-14 19:35:25,038 - lightrag - DEBUG - Upserted node with entity_id 'Expenses' and properties: {'entity_id': 'Expenses', 'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,046 - lightrag - DEBUG - Upserted node with entity_id 'Financial Planning' and properties: {'entity_id': 'Financial Planning', 'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,048 - lightrag - DEBUG - Upserted node with entity_id 'Daily Expenses' and properties: {'entity_id': 'Daily Expenses', 'entity_type': 'category', 'description': 'Daily expenses refer to the costs incurred on a daily basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,049 - lightrag - DEBUG - Upserted node with entity_id 'Savings' and properties: {'entity_id': 'Savings', 'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,050 - lightrag - DEBUG - Upserted node with entity_id 'Leisure Activities' and properties: {'entity_id': 'Leisure Activities', 'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,052 - lightrag - DEBUG - Upserted node with entity_id 'Necessary Expenses' and properties: {'entity_id': 'Necessary Expenses', 'entity_type': 'category', 'description': 'Necessary expenses refer to the essential costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,053 - lightrag - DEBUG - Upserted node with entity_id 'Personal Finances' and properties: {'entity_id': 'Personal Finances', 'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,054 - lightrag - DEBUG - Upserted node with entity_id 'Monthly Salary' and properties: {'entity_id': 'Monthly Salary', 'entity_type': 'category', 'description': 'Monthly salary refers to the regular income received by an individual.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,057 - lightrag - DEBUG - Upserted node with entity_id 'Financial Planning Overview' and properties: {'entity_id': 'Financial Planning Overview', 'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,060 - lightrag - DEBUG - Upserted node with entity_id 'Digital Tools' and properties: {'entity_id': 'Digital Tools', 'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,064 - lightrag - DEBUG - Upserted node with entity_id 'Quarterly Review' and properties: {'entity_id': 'Quarterly Review', 'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,067 - lightrag - DEBUG - Upserted node with entity_id 'Budgeting' and properties: {'entity_id': 'Budgeting', 'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,126 - lightrag - DEBUG - Upserted node with entity_id 'Long-term Financial Goals' and properties: {'entity_id': 'Long-term Financial Goals', 'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,128 - lightrag - DEBUG - Upserted node with entity_id 'Emergency Fund' and properties: {'entity_id': 'Emergency Fund', 'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,955 - lightrag - DEBUG - Upserted edge from 'Emergency Fund' to 'Savings'with properties: {'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'keywords': 'financial security, emergency preparedness', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,957 - lightrag - DEBUG - Upserted edge from 'Financial Planning' to 'Long-term Financial Goals'with properties: {'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'keywords': 'financial objectives, goal-setting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:25,962 - lightrag - DEBUG - Upserted edge from 'Daily Expenses' to 'Expenses'with properties: {'weight': 7.0, 'description': 'Daily expenses are a type of expense.', 'keywords': 'expense categorization, daily costs', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,040 - lightrag - DEBUG - Upserted edge from 'Financial Planning Overview' to 'Long-term Financial Goals'with properties: {'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'keywords': 'financial objectives, goal-setting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,043 - lightrag - DEBUG - Upserted edge from 'Emergency Fund' to 'Financial Planning'with properties: {'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'keywords': 'financial security, emergency preparedness', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,044 - lightrag - DEBUG - Upserted edge from 'Monthly Salary' to 'Savings'with properties: {'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'keywords': 'income allocation, savings', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,121 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Leisure Activities'with properties: {'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'keywords': 'expense allocation, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,194 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Necessary Expenses'with properties: {'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'keywords': 'expense allocation, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,267 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Digital Tools'with properties: {'weight': 8.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.<SEP>Digital tools are used for expense tracking and budgeting.', 'keywords': 'financial technology, expense tracking', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,329 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Financial Planning'with properties: {'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'keywords': 'financial management, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,410 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Financial Planning Overview'with properties: {'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'keywords': 'financial planning, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,488 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Quarterly Review'with properties: {'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'keywords': 'financial assessment, budget adjustment', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,561 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Personal Finances'with properties: {'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'keywords': 'financial management, personal finance', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:26,627 - lightrag - INFO - Extracted 14 entities and 13 relationships (deduplicated)
+2025-03-14 19:35:26,628 - lightrag - DEBUG - New entities:[{'entity_id': 'Financial Planning', ...
+2025-03-14 19:35:26,629 - lightrag - DEBUG - New relationships:[{'src_id': 'Budgeting', 'tgt_id...
+2025-03-14 19:35:26,630 - lightrag - INFO - Inserting 14 to entities
+2025-03-14 19:35:26,874 - lightrag - INFO - Process 11980 reloading entities due to update by another process
+2025-03-14 19:35:26,878 - lightrag - INFO - Inserting 13 to relationships
+2025-03-14 19:35:27,155 - lightrag - INFO - Process 11980 reloading relationships due to update by another process
+2025-03-14 19:35:27,158 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-14 19:35:27,160 - lightrag - INFO - Process 11980 doc status writting 1 records to doc_status
+2025-03-14 19:35:27,162 - lightrag - INFO - Completed batch 1 of 1.
+2025-03-14 19:35:27,163 - lightrag - INFO - Process 11980 KV writting 1 records to full_docs
+2025-03-14 19:35:27,166 - lightrag - INFO - Process 11980 KV writting 1 records to text_chunks
+2025-03-14 19:35:27,169 - lightrag - INFO - Process 11980 KV writting 2 records to llm_response_cache
+2025-03-14 19:35:27,188 - lightrag - INFO - All Insert done
+2025-03-14 19:35:27,190 - lightrag - INFO - Document processing pipeline completed
+2025-03-14 19:35:27,192 - lightrag - DEBUG - Non-embedding cached missed(mode:naive type:query)
+2025-03-14 19:35:27,273 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:35:27,275 - lightrag - DEBUG - [naive_query]Prompt Tokens: 332
+2025-03-14 19:35:27,992 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:35:27,993 - lightrag - INFO - Process 11980 KV writting 3 records to llm_response_cache
+2025-03-14 19:35:27,995 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:query)
+2025-03-14 19:35:27,996 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:keywords)
+2025-03-14 19:35:27,997 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-14 19:35:33,427 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:35:33,428 - lightrag - DEBUG - High-level keywords: ['Personal finance', 'Savings strategy', 'Financial planning']
+2025-03-14 19:35:33,428 - lightrag - DEBUG - Low-level  keywords: ['Emergency fund', 'Retirement savings', 'Interest rates', 'Budgeting']
+2025-03-14 19:35:33,429 - lightrag - INFO - Process 11980 buidling query context...
+2025-03-14 19:35:33,430 - lightrag - INFO - Query nodes: Emergency fund, Retirement savings, Interest rates, Budgeting, top_k: 60, cosine: 0.2
+2025-03-14 19:35:33,535 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:35:33,540 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:35:33,546 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:35:33,564 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:35:33,566 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:35:33,570 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:35:33,573 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:35:33,576 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:35:33,650 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:33,651 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:33,653 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:33,655 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:33,657 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:33,658 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:34,013 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:34,028 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,005 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,010 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,015 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,018 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,108 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 8.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.<SEP>Digital tools are used for expense tracking and budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,111 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 8.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.<SEP>Digital tools are used for expense tracking and budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,113 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,114 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,116 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,118 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,120 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,120 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,123 - lightrag - DEBUG - Result: {'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,124 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,126 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,128 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,133 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,212 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,213 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,217 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,380 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,381 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,436 - lightrag - DEBUG - Result: {'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,438 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,445 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,445 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,449 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,450 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,452 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,453 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,478 - lightrag - DEBUG - Result: {'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,480 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:35,719 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:35:35,720 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,774 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,776 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,779 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,856 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,858 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,860 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,861 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:35,895 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:35:36,169 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,247 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,251 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:35:36,253 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,259 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,326 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:35:36,327 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:35:36,328 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,332 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:35:36,338 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:35:36,340 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:35:36,342 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to the essential costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:35:36,343 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the regular income received by an individual.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:35:36,345 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:35:36,347 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 19:35:36,351 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,352 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,354 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:35:36,418 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:36,419 - lightrag - DEBUG - Truncate relations from 12 to 12 (max tokens:4000)
+2025-03-14 19:35:36,420 - lightrag - DEBUG - Truncate entities from 8 to 8 (max tokens:4000)
+2025-03-14 19:35:36,420 - lightrag - INFO - Local query uses 8 entites, 12 relations, 1 chunks
+2025-03-14 19:35:36,424 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1091
+2025-03-14 19:35:47,301 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:35:47,301 - lightrag - INFO - Process 11980 KV writting 5 records to llm_response_cache
+2025-03-14 19:35:47,303 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-14 19:35:47,304 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-14 19:35:47,304 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-14 19:35:50,687 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:35:50,687 - lightrag - DEBUG - High-level keywords: ['Personal finance', 'Savings strategy', 'Financial planning']
+2025-03-14 19:35:50,687 - lightrag - DEBUG - Low-level  keywords: ['Emergency fund', 'Retirement savings', 'Interest rates', 'Budgeting']
+2025-03-14 19:35:50,689 - lightrag - INFO - Process 11980 buidling query context...
+2025-03-14 19:35:50,689 - lightrag - INFO - Query edges: Personal finance, Savings strategy, Financial planning, top_k: 60, cosine: 0.2
+2025-03-14 19:35:50,954 - lightrag - DEBUG - Result: {'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,955 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,955 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:50,957 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,958 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,959 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:50,961 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:50,963 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,964 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,966 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,966 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,967 - lightrag - DEBUG - Result: {'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,967 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,968 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:50,970 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,970 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:50,972 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,017 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,018 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,022 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,024 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,026 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,030 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,031 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,032 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,034 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,036 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,047 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,118 - lightrag - DEBUG - Result: {'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,120 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,120 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,121 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,122 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,123 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,124 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,125 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,125 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,126 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,127 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,128 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,129 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,129 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:35:51,130 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,131 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,158 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:35:51,230 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,232 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:35:51,233 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,234 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,235 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,237 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,238 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,238 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to the essential costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:35:51,240 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:35:51,242 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,244 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:35:51,246 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:35:51,248 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:35:51,249 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,251 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,254 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:35:51,256 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:35:51,258 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,260 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the regular income received by an individual.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:35:51,261 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:35:51,263 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:35:51,264 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:35:51,265 - lightrag - DEBUG - Truncate entities from 11 to 11 (max tokens:4000)
+2025-03-14 19:35:51,267 - lightrag - INFO - Global query uses 11 entites, 11 relations, 1 chunks
+2025-03-14 19:35:51,271 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1351
+2025-03-14 19:36:05,074 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:36:05,075 - lightrag - INFO - Process 11980 KV writting 7 records to llm_response_cache
+2025-03-14 19:36:05,078 - lightrag - DEBUG - Non-embedding cached missed(mode:hybrid type:query)
+2025-03-14 19:36:05,079 - lightrag - DEBUG - Non-embedding cached missed(mode:hybrid type:keywords)
+2025-03-14 19:36:05,081 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-14 19:36:10,486 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:36:10,486 - lightrag - DEBUG - High-level keywords: ['Personal finance', 'Savings strategy', 'Financial planning']
+2025-03-14 19:36:10,486 - lightrag - DEBUG - Low-level  keywords: ['Emergency fund', 'Retirement savings', 'Interest rates', 'Budgeting']
+2025-03-14 19:36:10,487 - lightrag - INFO - Process 11980 buidling query context...
+2025-03-14 19:36:10,487 - lightrag - INFO - Query nodes: Emergency fund, Retirement savings, Interest rates, Budgeting, top_k: 60, cosine: 0.2
+2025-03-14 19:36:10,511 - lightrag - INFO - Query edges: Personal finance, Savings strategy, Financial planning, top_k: 60, cosine: 0.2
+2025-03-14 19:36:10,838 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:36:10,840 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:36:10,842 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,845 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,847 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:36:10,849 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:36:10,851 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:36:10,854 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:36:10,858 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:36:10,864 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,923 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,927 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,928 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,930 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,931 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,934 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,936 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,940 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,941 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,943 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,946 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,949 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,950 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,952 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,955 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,957 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,959 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,960 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,961 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:10,963 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:10,965 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,048 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,048 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,051 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,052 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,053 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,054 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,056 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,219 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,219 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,302 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,303 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,309 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,310 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,314 - lightrag - DEBUG - Result: {'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,315 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,318 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,325 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:36:11,330 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,429 - lightrag - DEBUG - Result: {'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,432 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,440 - lightrag - DEBUG - Result: {'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,441 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,446 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,474 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,619 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,746 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:36:11,751 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the regular income received by an individual.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:36:11,756 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:36:11,762 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:36:11,766 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 19:36:11,773 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to the essential costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:36:11,780 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:36:11,786 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:36:11,794 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:36:11,801 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:36:11,807 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,810 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 5.0, 'description': 'Savings are used to create an emergency fund.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,818 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:36:11,823 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,833 - lightrag - DEBUG - Result: {'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,835 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income allocation, savings', 'weight': 6.0, 'description': 'A portion of monthly salary is set aside for savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,842 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,843 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,848 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,856 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,858 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,863 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:36:11,873 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 8.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.<SEP>Digital tools are used for expense tracking and budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,875 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 8.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.<SEP>Digital tools are used for expense tracking and budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,878 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,885 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,891 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,894 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Necessary expenses are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,896 - lightrag - DEBUG - Result: {'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,897 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial assessment, budget adjustment', 'weight': 2.0, 'description': 'Budgeting involves regular review and adjustment.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,905 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,907 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.<SEP>Budgeting is essential for managing personal finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,910 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,913 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, budgeting', 'weight': 1.0, 'description': 'Leisure activities are considered in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,917 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,923 - lightrag - DEBUG - Result: {'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,924 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial planning, budgeting', 'weight': 9.0, 'description': 'Financial Planning Overview involves budgeting as a crucial step.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,929 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,930 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:11,933 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,942 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,948 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,958 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,968 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,980 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,987 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,990 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:11,993 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:36:11,998 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,002 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,004 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,096 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:36:12,099 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,100 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,104 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,106 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,110 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,112 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,144 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,152 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,156 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,159 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,164 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,170 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:36:12,173 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,175 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:36:12,177 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:36:12,180 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,182 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's financial situation and budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:36:12,186 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,189 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:36:12,192 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:36:12,195 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:36:12,201 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to the essential costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:36:12,204 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the regular income received by an individual.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:36:12,209 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:36:12,213 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,216 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,218 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,221 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:36:12,224 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,226 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,229 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:12,231 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 4.0, 'description': 'Long-term financial goals are considered in financial planning.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:36:12,232 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,239 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,242 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,245 - lightrag - DEBUG - Truncate entities from 11 to 11 (max tokens:4000)
+2025-03-14 19:36:12,246 - lightrag - INFO - Global query uses 11 entites, 11 relations, 1 chunks
+2025-03-14 19:36:12,307 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:36:12,309 - lightrag - DEBUG - Truncate relations from 12 to 12 (max tokens:4000)
+2025-03-14 19:36:12,310 - lightrag - DEBUG - Truncate entities from 8 to 8 (max tokens:4000)
+2025-03-14 19:36:12,310 - lightrag - INFO - Local query uses 8 entites, 12 relations, 1 chunks
+2025-03-14 19:36:12,316 - lightrag - DEBUG - [kg_query]Prompt Tokens: 2050
+2025-03-14 19:36:32,187 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:36:32,188 - lightrag - INFO - Process 11980 KV writting 9 records to llm_response_cache
+2025-03-14 19:39:21,946 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x0000029AC515E340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 8192, 'func': <function initialize_rag.<locals>.<lambda> at 0x0000029AF6F3AC00>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x0000029AF6F3AA20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'language': 'English'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x0000029AC4C47600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 19:39:24,457 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 19:39:24,561 - lightrag - INFO - Process 18300 KV load full_docs with 1 records
+2025-03-14 19:39:24,569 - lightrag - INFO - Process 18300 KV load text_chunks with 1 records
+2025-03-14 19:39:24,597 - lightrag - INFO - Process 18300 KV load llm_response_cache with 9 records
+2025-03-14 19:39:24,621 - lightrag - INFO - Process 18300 doc status load doc_status with 1 records
+2025-03-14 19:39:24,624 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:39:24,624 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:39:24,627 - lightrag - INFO - No new unique documents were found.
+2025-03-14 19:39:24,627 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 19:39:24,628 - lightrag - INFO - No documents to process
+2025-03-14 19:39:24,631 - lightrag - DEBUG - Non-embedding cached hit(mode:naive type:query)
+2025-03-14 19:39:24,633 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 19:39:24,635 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 19:39:24,638 - lightrag - DEBUG - Non-embedding cached hit(mode:hybrid type:query)
+2025-03-14 19:41:59,367 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000001DE034FE340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 8192, 'func': <function initialize_rag.<locals>.<lambda> at 0x000001DE352BAC00>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000001DE352BAA20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'language': 'English'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000001DE02FE7600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 19:42:01,277 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 19:42:01,297 - lightrag - INFO - Process 27140 KV load full_docs with 1 records
+2025-03-14 19:42:01,299 - lightrag - INFO - Process 27140 KV load text_chunks with 1 records
+2025-03-14 19:42:01,306 - lightrag - INFO - Process 27140 KV load llm_response_cache with 9 records
+2025-03-14 19:42:01,311 - lightrag - INFO - Process 27140 doc status load doc_status with 1 records
+2025-03-14 19:42:01,316 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:42:01,319 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:42:01,320 - lightrag - INFO - No new unique documents were found.
+2025-03-14 19:42:01,321 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 19:42:01,323 - lightrag - INFO - No documents to process
+2025-03-14 19:42:01,328 - lightrag - DEBUG - Non-embedding cached hit(mode:naive type:query)
+2025-03-14 19:42:01,330 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 19:42:01,332 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 19:42:01,335 - lightrag - DEBUG - Non-embedding cached hit(mode:hybrid type:query)
+2025-03-14 19:51:05,591 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x00000212CB3BE340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 8192, 'func': <function initialize_rag.<locals>.<lambda> at 0x00000212FD1AAC00>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000212FD1AAA20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'language': 'English'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x00000212CAEA7600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 19:51:07,259 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 19:51:07,281 - lightrag - INFO - Process 1744 KV load full_docs with 1 records
+2025-03-14 19:51:07,282 - lightrag - INFO - Process 1744 KV load text_chunks with 1 records
+2025-03-14 19:51:07,286 - lightrag - INFO - Process 1744 KV load llm_response_cache with 9 records
+2025-03-14 19:51:07,289 - lightrag - INFO - Process 1744 doc status load doc_status with 1 records
+2025-03-14 19:51:07,291 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:51:07,292 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:51:07,294 - lightrag - INFO - No new unique documents were found.
+2025-03-14 19:51:07,296 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 19:51:07,296 - lightrag - INFO - No documents to process
+2025-03-14 19:51:07,298 - lightrag - DEBUG - Non-embedding cached hit(mode:naive type:query)
+2025-03-14 19:51:07,301 - lightrag - DEBUG - Non-embedding cached hit(mode:local type:query)
+2025-03-14 19:51:07,302 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-14 19:51:07,303 - lightrag - DEBUG - Non-embedding cached hit(mode:hybrid type:query)
+2025-03-14 19:52:55,163 - lightrag - INFO - Creating working directory vectorized_data
+2025-03-14 19:52:55,163 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000002165587E340>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 8192, 'func': <function initialize_rag.<locals>.<lambda> at 0x00000216076BAC00>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x00000216076BAA20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'language': 'English'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x0000021655367600>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-14 19:52:56,601 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-14 19:52:56,617 - lightrag - INFO - Process 27240 KV load full_docs with 0 records
+2025-03-14 19:52:56,618 - lightrag - INFO - Process 27240 KV load text_chunks with 0 records
+2025-03-14 19:52:56,620 - lightrag - INFO - Process 27240 KV load llm_response_cache with 0 records
+2025-03-14 19:52:56,622 - lightrag - INFO - Process 27240 doc status load doc_status with 0 records
+2025-03-14 19:52:56,624 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:52:56,626 - lightrag - DEBUG - Initialized Storages
+2025-03-14 19:52:56,627 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-14 19:52:56,628 - lightrag - INFO - Process 27240 doc status writting 1 records to doc_status
+2025-03-14 19:52:56,630 - lightrag - INFO - Stored 1 new unique documents
+2025-03-14 19:52:56,631 - lightrag - INFO - Storage Initialization completed!
+2025-03-14 19:52:56,631 - lightrag - INFO - Number of batches to process: 1.
+2025-03-14 19:52:56,632 - lightrag - INFO - Start processing batch 1 of 1.
+2025-03-14 19:52:57,317 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-14 19:52:57,317 - lightrag - INFO - Process 27240 doc status writting 1 records to doc_status
+2025-03-14 19:52:57,319 - lightrag - INFO - Inserting 1 to chunks
+2025-03-14 19:52:57,320 - lightrag - INFO - Inserting 1 records to full_docs
+2025-03-14 19:52:57,321 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-03-14 19:52:57,520 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-14 19:52:57,958 - lightrag - INFO - Process 27240 reloading chunks due to update by another process
+2025-03-14 19:52:59,871 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:52:59,872 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-14 19:53:10,009 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:53:10,010 - lightrag - INFO -   Chunk 1/1: extracted 14 entities and 14 relationships (deduplicated)
+2025-03-14 19:53:12,216 - lightrag - DEBUG - Upserted node with entity_id 'Savings' and properties: {'entity_id': 'Savings', 'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,216 - lightrag - DEBUG - Upserted node with entity_id 'Monthly Salary' and properties: {'entity_id': 'Monthly Salary', 'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,217 - lightrag - DEBUG - Upserted node with entity_id 'Financial Planning' and properties: {'entity_id': 'Financial Planning', 'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,218 - lightrag - DEBUG - Upserted node with entity_id 'Personal Finances' and properties: {'entity_id': 'Personal Finances', 'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,223 - lightrag - DEBUG - Upserted node with entity_id 'Emergency Fund' and properties: {'entity_id': 'Emergency Fund', 'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,224 - lightrag - DEBUG - Upserted node with entity_id 'Leisure Activities' and properties: {'entity_id': 'Leisure Activities', 'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,226 - lightrag - DEBUG - Upserted node with entity_id 'Daily Expenses' and properties: {'entity_id': 'Daily Expenses', 'entity_type': 'category', 'description': 'Daily expenses refer to the costs incurred on a daily basis, such as food and transportation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,227 - lightrag - DEBUG - Upserted node with entity_id 'Quarterly Review' and properties: {'entity_id': 'Quarterly Review', 'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,228 - lightrag - DEBUG - Upserted node with entity_id 'Financial Planning Overview' and properties: {'entity_id': 'Financial Planning Overview', 'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,379 - lightrag - DEBUG - Upserted node with entity_id 'Long-term Financial Goals' and properties: {'entity_id': 'Long-term Financial Goals', 'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,381 - lightrag - DEBUG - Upserted node with entity_id 'Budgeting' and properties: {'entity_id': 'Budgeting', 'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,381 - lightrag - DEBUG - Upserted node with entity_id 'Expenses' and properties: {'entity_id': 'Expenses', 'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,384 - lightrag - DEBUG - Upserted node with entity_id 'Digital Tools' and properties: {'entity_id': 'Digital Tools', 'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:12,449 - lightrag - DEBUG - Upserted node with entity_id 'Necessary Expenses' and properties: {'entity_id': 'Necessary Expenses', 'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,682 - lightrag - DEBUG - Upserted edge from 'Financial Planning' to 'Long-term Financial Goals'with properties: {'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'keywords': 'financial objectives, goal-setting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,684 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Necessary Expenses'with properties: {'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'keywords': 'expense allocation, necessary expenses', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,685 - lightrag - DEBUG - Upserted edge from 'Emergency Fund' to 'Savings'with properties: {'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'keywords': 'savings, emergency fund', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,686 - lightrag - DEBUG - Upserted edge from 'Daily Expenses' to 'Expenses'with properties: {'weight': 6.0, 'description': 'Daily expenses are a type of expense that requires regular tracking.', 'keywords': 'expense categorization, daily expenses', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,759 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Financial Planning Overview'with properties: {'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'keywords': 'financial management, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,761 - lightrag - DEBUG - Upserted edge from 'Monthly Salary' to 'Savings'with properties: {'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'keywords': 'income, savings', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,777 - lightrag - DEBUG - Upserted edge from 'Emergency Fund' to 'Long-term Financial Goals'with properties: {'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'keywords': 'financial security, long-term goals', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,826 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Digital Tools'with properties: {'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'keywords': 'financial technology, expense tracking', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,877 - lightrag - DEBUG - Upserted edge from 'Emergency Fund' to 'Financial Planning'with properties: {'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'keywords': 'financial security, emergency preparedness', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,912 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Expenses'with properties: {'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'keywords': 'expense tracking, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:13,993 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Quarterly Review'with properties: {'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'keywords': 'budget assessment, financial planning', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:14,071 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Leisure Activities'with properties: {'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'keywords': 'expense allocation, leisure activities', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:14,153 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Financial Planning'with properties: {'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'keywords': 'financial management, budgeting', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:14,229 - lightrag - DEBUG - Upserted edge from 'Budgeting' to 'Personal Finances'with properties: {'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'keywords': 'financial management, personal finance', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:14,308 - lightrag - INFO - Extracted 14 entities and 14 relationships (deduplicated)
+2025-03-14 19:53:14,309 - lightrag - DEBUG - New entities:[{'entity_id': 'Financial Planning', ...
+2025-03-14 19:53:14,309 - lightrag - DEBUG - New relationships:[{'src_id': 'Budgeting', 'tgt_id...
+2025-03-14 19:53:14,309 - lightrag - INFO - Inserting 14 to entities
+2025-03-14 19:53:14,462 - lightrag - INFO - Process 27240 reloading entities due to update by another process
+2025-03-14 19:53:14,464 - lightrag - INFO - Inserting 14 to relationships
+2025-03-14 19:53:14,672 - lightrag - INFO - Process 27240 reloading relationships due to update by another process
+2025-03-14 19:53:14,674 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-14 19:53:14,676 - lightrag - INFO - Process 27240 doc status writting 1 records to doc_status
+2025-03-14 19:53:14,677 - lightrag - INFO - Completed batch 1 of 1.
+2025-03-14 19:53:14,678 - lightrag - INFO - Process 27240 KV writting 1 records to full_docs
+2025-03-14 19:53:14,680 - lightrag - INFO - Process 27240 KV writting 1 records to text_chunks
+2025-03-14 19:53:14,682 - lightrag - INFO - Process 27240 KV writting 2 records to llm_response_cache
+2025-03-14 19:53:14,693 - lightrag - INFO - All Insert done
+2025-03-14 19:53:14,695 - lightrag - INFO - Document processing pipeline completed
+2025-03-14 19:53:14,697 - lightrag - DEBUG - Non-embedding cached missed(mode:naive type:query)
+2025-03-14 19:53:14,766 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:53:14,769 - lightrag - DEBUG - [naive_query]Prompt Tokens: 332
+2025-03-14 19:53:16,487 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:53:16,488 - lightrag - INFO - Process 27240 KV writting 3 records to llm_response_cache
+2025-03-14 19:53:16,490 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:query)
+2025-03-14 19:53:16,491 - lightrag - DEBUG - Non-embedding cached missed(mode:local type:keywords)
+2025-03-14 19:53:16,492 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-14 19:53:21,004 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:53:21,005 - lightrag - DEBUG - High-level keywords: ['Personal finance', 'Savings strategy', 'Financial planning']
+2025-03-14 19:53:21,006 - lightrag - DEBUG - Low-level  keywords: ['Emergency fund', 'Retirement savings', 'Interest rates', 'Budgeting']
+2025-03-14 19:53:21,006 - lightrag - INFO - Process 27240 buidling query context...
+2025-03-14 19:53:21,006 - lightrag - INFO - Query nodes: Emergency fund, Retirement savings, Interest rates, Budgeting, top_k: 60, cosine: 0.2
+2025-03-14 19:53:21,096 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:53:21,099 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:53:21,103 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:53:21,107 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:53:21,132 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:53:21,138 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:53:21,140 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:53:21,199 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:53:21,200 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:53:21,216 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,277 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,277 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,279 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,280 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,646 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,656 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,657 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:21,676 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,687 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,690 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,692 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,698 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,704 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,779 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,781 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,784 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,806 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,807 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,890 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,891 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,894 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,894 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,896 - lightrag - DEBUG - Result: {'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,896 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,897 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,899 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,902 - lightrag - DEBUG - Result: {'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,903 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,905 - lightrag - DEBUG - Result: {'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,906 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,906 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,908 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,909 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,909 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,911 - lightrag - DEBUG - Result: {'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,912 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,913 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,914 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,915 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,915 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,918 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:22,921 - lightrag - DEBUG - Result: {'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,921 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:22,924 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,117 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:53:23,137 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:53:23,151 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:53:23,152 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:53:23,157 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:53:23,178 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,180 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,185 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:53:23,186 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,189 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:53:23,192 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:53:23,194 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:53:23,195 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,197 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,199 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:53:23,201 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:53:23,206 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-14 19:53:23,207 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,211 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,214 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 19:53:23,217 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,219 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:53:23,248 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,249 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,261 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,262 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,274 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,279 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,280 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,285 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:23,287 - lightrag - DEBUG - Truncate relations from 13 to 13 (max tokens:4000)
+2025-03-14 19:53:23,288 - lightrag - DEBUG - Truncate entities from 9 to 9 (max tokens:4000)
+2025-03-14 19:53:23,289 - lightrag - INFO - Local query uses 9 entites, 13 relations, 1 chunks
+2025-03-14 19:53:23,293 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1175
+2025-03-14 19:53:36,104 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:53:36,108 - lightrag - INFO - Process 27240 KV writting 5 records to llm_response_cache
+2025-03-14 19:53:36,116 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-14 19:53:36,119 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-14 19:53:36,124 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-14 19:53:39,588 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:53:39,589 - lightrag - DEBUG - High-level keywords: ['Personal finance', 'Savings strategy', 'Financial planning']
+2025-03-14 19:53:39,589 - lightrag - DEBUG - Low-level  keywords: ['Emergency fund', 'Retirement savings', 'Interest rates', 'Budgeting']
+2025-03-14 19:53:39,590 - lightrag - INFO - Process 27240 buidling query context...
+2025-03-14 19:53:39,591 - lightrag - INFO - Query edges: Personal finance, Savings strategy, Financial planning, top_k: 60, cosine: 0.2
+2025-03-14 19:53:39,838 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,841 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,853 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,855 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,865 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,865 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,871 - lightrag - DEBUG - Result: {'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,872 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,877 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,883 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,895 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,903 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,913 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,938 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,948 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,954 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,960 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,964 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,971 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,984 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,990 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:39,998 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:39,999 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,002 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,003 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,006 - lightrag - DEBUG - Result: {'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,008 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,009 - lightrag - DEBUG - Result: {'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,010 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,012 - lightrag - DEBUG - Result: {'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,012 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,016 - lightrag - DEBUG - Result: {'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,017 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,020 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,024 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,030 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,032 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,036 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,039 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,040 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,043 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,048 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,049 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:53:40,053 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,056 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,063 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,067 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,070 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,075 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,080 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,085 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,093 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,175 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:53:40,194 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:53:40,198 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-14 19:53:40,201 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:53:40,205 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:53:40,211 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:53:40,213 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 19:53:40,218 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:53:40,221 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:53:40,224 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:53:40,227 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:53:40,232 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:53:40,236 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,241 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:53:40,246 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,250 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,254 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:53:40,257 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,264 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,269 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,273 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,279 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,282 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,286 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,290 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,295 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,299 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:53:40,303 - lightrag - DEBUG - Truncate entities from 13 to 13 (max tokens:4000)
+2025-03-14 19:53:40,304 - lightrag - INFO - Global query uses 13 entites, 13 relations, 1 chunks
+2025-03-14 19:53:40,311 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1557
+2025-03-14 19:53:56,217 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:53:56,218 - lightrag - INFO - Process 27240 KV writting 7 records to llm_response_cache
+2025-03-14 19:53:56,221 - lightrag - DEBUG - Non-embedding cached missed(mode:hybrid type:query)
+2025-03-14 19:53:56,221 - lightrag - DEBUG - Non-embedding cached missed(mode:hybrid type:keywords)
+2025-03-14 19:53:56,222 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-14 19:54:01,586 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:54:01,587 - lightrag - DEBUG - High-level keywords: ['Personal finance', 'Savings strategy', 'Financial planning']
+2025-03-14 19:54:01,587 - lightrag - DEBUG - Low-level  keywords: ['Emergency fund', 'Retirement savings', 'Interest rates', 'Budgeting']
+2025-03-14 19:54:01,587 - lightrag - INFO - Process 27240 buidling query context...
+2025-03-14 19:54:01,588 - lightrag - INFO - Query nodes: Emergency fund, Retirement savings, Interest rates, Budgeting, top_k: 60, cosine: 0.2
+2025-03-14 19:54:01,618 - lightrag - INFO - Query edges: Personal finance, Savings strategy, Financial planning, top_k: 60, cosine: 0.2
+2025-03-14 19:54:01,863 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:54:01,869 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:54:01,870 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:54:01,877 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,879 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:54:01,881 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:54:01,884 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,885 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:54:01,887 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:54:01,892 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,894 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:54:01,895 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,898 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:54:01,900 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,901 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,903 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,905 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,906 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,907 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,909 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,911 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,913 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,914 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,916 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,923 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,924 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,926 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,929 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,935 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,936 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,939 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,941 - lightrag - DEBUG - Result: {'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,942 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,946 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,946 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,948 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,952 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,958 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,961 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,963 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,965 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,971 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,972 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,975 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:01,978 - lightrag - DEBUG - Result: {'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,979 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,996 - lightrag - DEBUG - Result: {'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:01,997 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,000 - lightrag - DEBUG - Result: {'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,001 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,004 - lightrag - DEBUG - Result: {'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,004 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,038 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,041 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,044 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,045 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,047 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,049 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,052 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,053 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,188 - lightrag - DEBUG - Result: {'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,188 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, emergency preparedness', 'weight': 7.0, 'description': 'Creating an emergency fund is a crucial step in financial planning, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,189 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,189 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,194 - lightrag - DEBUG - Result: {'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,195 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'savings, emergency fund', 'weight': 4.0, 'description': 'Savings can be used to build an emergency fund, providing a safety net for unexpected expenses.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,196 - lightrag - DEBUG - Result: {'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,196 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial objectives, goal-setting', 'weight': 6.0, 'description': 'Long-term financial goals are an important consideration in financial planning, helping individuals achieve their objectives.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,198 - lightrag - DEBUG - Result: {'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,199 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial security, long-term goals', 'weight': 3.0, 'description': 'An emergency fund can help individuals achieve their long-term financial goals by providing a safety net.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,200 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,201 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, leisure activities', 'weight': 1.0, 'description': 'Leisure activities are a type of expense that requires allocation of resources in budgeting.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,202 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,205 - lightrag - DEBUG - Result: {'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,205 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, budgeting', 'weight': 9.0, 'description': 'Budgeting is a key component of financial planning, helping individuals manage their finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,207 - lightrag - DEBUG - Result: {'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,208 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense allocation, necessary expenses', 'weight': 1.0, 'description': 'Necessary expenses are a crucial aspect of budgeting, requiring allocation of resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,211 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,211 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,213 - lightrag - DEBUG - Result: {'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,213 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial technology, expense tracking', 'weight': 7.0, 'description': 'Digital tools are used for expense tracking and budgeting, making it easier to manage finances.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,215 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,218 - lightrag - DEBUG - Result: {'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,219 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'budget assessment, financial planning', 'weight': 1.0, 'description': "Quarterly review is a process of assessing and adjusting one's budget.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,220 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,223 - lightrag - DEBUG - Result: {'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,225 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'income, savings', 'weight': 5.0, 'description': 'Monthly salary is a source of income that can be allocated towards savings.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,229 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,232 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,235 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,237 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,241 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,245 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,248 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,251 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,255 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:54:02,258 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:54:02,261 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:54:02,263 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,268 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,271 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 19:54:02,273 - lightrag - DEBUG - Result: {'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,275 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'expense tracking, budgeting', 'weight': 7.0, 'description': 'Expenses are a crucial aspect of budgeting, requiring tracking and allocation.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-14 19:54:02,277 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-14 19:54:02,280 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:54:02,282 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:54:02,284 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:54:02,286 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:54:02,292 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:54:02,295 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:54:02,297 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:54:02,299 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:54:02,310 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,312 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,318 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,320 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,322 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,324 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,326 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,329 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,330 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,331 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,332 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,333 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:54:02,349 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,350 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,351 - lightrag - DEBUG - Truncate relations from 13 to 13 (max tokens:4000)
+2025-03-14 19:54:02,353 - lightrag - DEBUG - Truncate entities from 9 to 9 (max tokens:4000)
+2025-03-14 19:54:02,353 - lightrag - INFO - Local query uses 9 entites, 13 relations, 1 chunks
+2025-03-14 19:54:02,534 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,535 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,537 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,539 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,540 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,604 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,605 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,606 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,609 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,611 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,635 - lightrag - DEBUG - Truncate chunks from 1 to 1 (max tokens:4000)
+2025-03-14 19:54:02,681 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-14 19:54:02,696 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': "Quarterly review refers to the regular assessment of one's budget and financial progress.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Quarterly Review'}
+2025-03-14 19:54:02,697 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial planning is a process of managing personal finances effectively, involving budgeting, saving, and investing.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning'}
+2025-03-14 19:54:02,698 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Leisure activities refer to hobbies or recreational pursuits.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Leisure Activities'}
+2025-03-14 19:54:02,698 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial Planning Overview is a guide to managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Financial Planning Overview'}
+2025-03-14 19:54:02,699 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'An emergency fund is a reserve of money set aside to cover unexpected expenses or financial emergencies.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Emergency Fund'}
+2025-03-14 19:54:02,700 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,701 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Savings refer to the amount of money set aside for future use.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Savings'}
+2025-03-14 19:54:02,703 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Digital tools are software or applications used for expense tracking and financial management.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Digital Tools'}
+2025-03-14 19:54:02,706 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-14 19:54:02,707 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Long-term financial goals refer to objectives an individual wants to achieve in the future, such as retirement or buying a house.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Long-term Financial Goals'}
+2025-03-14 19:54:02,709 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Monthly salary refers to the income earned by an individual on a monthly basis.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Monthly Salary'}
+2025-03-14 19:54:02,710 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,711 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,713 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,714 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Necessary expenses refer to essential costs, such as rent and utilities.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Necessary Expenses'}
+2025-03-14 19:54:02,716 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,718 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-14 19:54:02,719 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,725 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,727 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,728 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,731 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,732 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,733 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,733 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-14 19:54:02,738 - lightrag - DEBUG - Truncate entities from 13 to 13 (max tokens:4000)
+2025-03-14 19:54:02,739 - lightrag - INFO - Global query uses 13 entites, 13 relations, 1 chunks
+2025-03-14 19:54:02,745 - lightrag - DEBUG - [kg_query]Prompt Tokens: 2346
+2025-03-14 19:54:26,774 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-14 19:54:26,774 - lightrag - INFO - Process 27240 KV writting 9 records to llm_response_cache
