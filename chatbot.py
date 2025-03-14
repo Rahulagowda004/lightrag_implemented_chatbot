@@ -2,13 +2,18 @@
 import asyncio
 from lightrag import LightRAG
 from lightrag.llm.llama_index_impl import llama_index_complete_if_cache, llama_index_embed
-from llama_index.embeddings.
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.core import Settings
 from llama_index.llms.groq import Groq
 from lightrag.kg.shared_storage import initialize_pipeline_status
 from lightrag.utils import setup_logger
 
 # Setup log handler for LightRAG
 setup_logger("lightrag", level="INFO")
+
+embed_model = HuggingFaceEmbedding(
+    model_name="BAAI/bge-small-en-v1.5"
+)
 
 async def initialize_rag():
     rag = LightRAG(
