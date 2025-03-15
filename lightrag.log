@@ -8511,3 +8511,663 @@
 2025-03-15 13:28:21,446 - lightrag - INFO - Process 19228 buidling query context...
 2025-03-15 13:28:21,446 - lightrag - INFO - Query edges: Personal relationships, Friendship, top_k: 60, cosine: 0.2
 2025-03-15 13:28:21,549 - lightrag - ERROR - Error in get_edge between Individual and Personal Finances: Unable to retrieve routing information
+2025-03-15 13:29:05,609 - lightrag - DEBUG - LightRAG init with param:
+  working_dir = vectorized_data,
+  kv_storage = JsonKVStorage,
+  vector_storage = NanoVectorDBStorage,
+  graph_storage = Neo4JStorage,
+  doc_status_storage = JsonDocStatusStorage,
+  log_level = None,
+  log_file_path = None,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  chunking_func = <function chunking_by_token_size at 0x000002E4F379E2A0>,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = <__main__.EmbeddingWrapper object at 0x000002E4A5A54710>,
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  embedding_cache_config = {'enabled': False, 'similarity_threshold': 0.95, 'use_llm_check': False},
+  llm_model_func = <function initialize_rag.<locals>.llm_wrapper at 0x000002E4A578EF20>,
+  llm_model_name = gpt-4o-mini,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  vector_db_storage_cls_kwargs = {'cosine_better_than_threshold': 0.2},
+  namespace_prefix = ,
+  enable_llm_cache = True,
+  enable_llm_cache_for_entity_extract = True,
+  max_parallel_insert = 20,
+  addon_params = {'use_vector_storage': True, 'store_response': True, 'enable_knowledge_extraction': True, 'extract_entities': True, 'extract_relationships': True, 'kg_storage_type': 'Neo4JStorage'},
+  auto_manage_storages_states = True,
+  convert_response_to_json_func = <function convert_response_to_json at 0x000002E4F3287560>,
+  cosine_better_than_threshold = 0.2,
+  _storages_status = StoragesStatus.NOT_CREATED
+
+2025-03-15 13:29:07,463 - lightrag - INFO - Successfully connected to Neo4j Aura database at neo4j+s://bc33095c.databases.neo4j.io
+2025-03-15 13:29:07,566 - lightrag - INFO - Process 9980 KV load full_docs with 6 records
+2025-03-15 13:29:07,595 - lightrag - INFO - Process 9980 KV load text_chunks with 6 records
+2025-03-15 13:29:07,625 - lightrag - INFO - Process 9980 KV load llm_response_cache with 21 records
+2025-03-15 13:29:07,645 - lightrag - INFO - Process 9980 doc status load doc_status with 6 records
+2025-03-15 13:29:07,646 - lightrag - DEBUG - Initialized Storages
+2025-03-15 13:29:07,647 - lightrag - DEBUG - Initialized Storages
+2025-03-15 13:29:07,648 - lightrag - INFO - No new unique documents were found.
+2025-03-15 13:29:07,648 - lightrag - INFO - Storage Initialization completed!
+2025-03-15 13:29:07,649 - lightrag - INFO - No documents to process
+2025-03-15 13:29:13,983 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-15 13:29:13,983 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-15 13:29:14,441 - lightrag - DEBUG - [kg_query]Prompt Tokens: 417
+2025-03-15 13:29:15,147 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:29:15,150 - lightrag - DEBUG - High-level keywords: ['Personal information', 'Identity']
+2025-03-15 13:29:15,151 - lightrag - DEBUG - Low-level  keywords: ['Name', 'Friend', 'Naveen']
+2025-03-15 13:29:15,151 - lightrag - INFO - Process 9980 buidling query context...
+2025-03-15 13:29:15,152 - lightrag - INFO - Query edges: Personal information, Identity, top_k: 60, cosine: 0.2
+2025-03-15 13:29:15,177 - lightrag - INFO - Process 9980 reloading relationships due to update by another process
+2025-03-15 13:29:16,884 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,887 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,889 - lightrag - DEBUG - Result: {'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:16,890 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:16,890 - lightrag - DEBUG - Result: {'keywords': 'user interaction, assistance', 'weight': 8.0, 'description': 'Rahul is interacting with the Assistant to get answers.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,890 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user interaction, assistance', 'weight': 8.0, 'description': 'Rahul is interacting with the Assistant to get answers.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,892 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,896 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,902 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,905 - lightrag - DEBUG - Result: {'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,906 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,907 - lightrag - DEBUG - Result: {'keywords': 'AI response, information provision', 'weight': 9.0, 'description': 'The Assistant is providing a response.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,907 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'AI response, information provision', 'weight': 9.0, 'description': 'The Assistant is providing a response.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,907 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,909 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,910 - lightrag - DEBUG - Result: {'keywords': 'information provision, knowledge source', 'weight': 9.0, 'description': 'The Response is generated from the Knowledge Base.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,911 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information provision, knowledge source', 'weight': 9.0, 'description': 'The Response is generated from the Knowledge Base.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:16,915 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,917 - lightrag - DEBUG - Result: {'keywords': 'personal information, data storage', 'weight': 8.0, 'description': "Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:16,918 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'personal information, data storage', 'weight': 8.0, 'description': "Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:16,919 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,921 - lightrag - DEBUG - Result: {'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:16,922 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:16,969 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,974 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,979 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,981 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,983 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,987 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,992 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,995 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:16,998 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,000 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:17,003 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:17,006 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-15 13:29:17,010 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-15 13:29:17,015 - lightrag - DEBUG - Result: {'keywords': 'user action, inquiry', 'weight': 7.0, 'description': 'Rahul is asking a question.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:17,017 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user action, inquiry', 'weight': 7.0, 'description': 'Rahul is asking a question.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:17,066 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,070 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,092 - lightrag - DEBUG - Truncate chunks from 4 to 4 (max tokens:4000)
+2025-03-15 13:29:17,168 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,168 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,173 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-15 13:29:17,175 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'organization', 'description': 'The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.', 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:29:17,178 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': "The Assistant is the AI responding to Rahul's queries.", 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Assistant'}
+2025-03-15 13:29:17,179 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The User is a general term for individuals interacting with the Assistant.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'User'}
+2025-03-15 13:29:17,180 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial concepts are essential for managing personal finances effectively, including categories such as personal finances, financial planning, budgeting, expenses, savings, and long-term financial goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Financial Concepts'}
+2025-03-15 13:29:17,181 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,182 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-15 13:29:17,184 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,186 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Income refers to the money earned by an individual or household.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Income'}
+2025-03-15 13:29:17,188 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,190 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,193 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The Query is the action of Rahul asking a question.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Query'}
+2025-03-15 13:29:17,195 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,196 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:29:17,198 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,200 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Individual refers to a single person, often with their own financial situation and goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Individual'}
+2025-03-15 13:29:17,202 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The Response is the action of the Assistant providing an answer.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Response'}
+2025-03-15 13:29:17,204 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,640 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,653 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:17,654 - lightrag - DEBUG - Truncate entities from 11 to 11 (max tokens:4000)
+2025-03-15 13:29:17,656 - lightrag - INFO - Global query uses 11 entites, 10 relations, 4 chunks
+2025-03-15 13:29:17,658 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1525
+2025-03-15 13:29:18,040 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:29:18,040 - lightrag - INFO - Process 9980 KV writting 23 records to llm_response_cache
+2025-03-15 13:29:18,047 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:29:18,047 - lightrag - INFO - Process 9980 doc status writting 7 records to doc_status
+2025-03-15 13:29:18,048 - lightrag - INFO - Stored 1 new unique documents
+2025-03-15 13:29:18,049 - lightrag - INFO - Number of batches to process: 1.
+2025-03-15 13:29:18,049 - lightrag - INFO - Start processing batch 1 of 1.
+2025-03-15 13:29:18,049 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:29:18,049 - lightrag - INFO - Process 9980 doc status writting 7 records to doc_status
+2025-03-15 13:29:18,051 - lightrag - INFO - Inserting 1 to chunks
+2025-03-15 13:29:18,052 - lightrag - INFO - Inserting 1 records to full_docs
+2025-03-15 13:29:18,052 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-03-15 13:29:18,121 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-15 13:29:18,127 - lightrag - INFO - Process 9980 reloading chunks due to update by another process
+2025-03-15 13:29:18,938 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:29:18,939 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-15 13:29:36,625 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:29:36,626 - lightrag - INFO -   Chunk 1/1: extracted 6 entities and 6 relationships (deduplicated)
+2025-03-15 13:29:37,243 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:29:37,259 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'organization', 'description': 'The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.', 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:29:37,457 - lightrag - DEBUG - Upserted node with entity_id 'I' and properties: {'entity_id': 'I', 'entity_type': 'person', 'description': 'The speaker of the conversation, likely a chatbot or AI assistant.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:37,463 - lightrag - DEBUG - Upserted node with entity_id 'Naveen' and properties: {'entity_id': 'Naveen', 'entity_type': 'person', 'description': 'Naveen is a person mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:37,466 - lightrag - DEBUG - Upserted node with entity_id 'Chatbot' and properties: {'entity_id': 'Chatbot', 'entity_type': 'organization', 'description': 'The chatbot is the entity responsible for facilitating the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:37,468 - lightrag - DEBUG - Upserted node with entity_id 'Rahul' and properties: {'entity_id': 'Rahul', 'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:37,472 - lightrag - DEBUG - Upserted node with entity_id 'Knowledge Base' and properties: {'entity_id': 'Knowledge Base', 'entity_type': 'category', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:37,477 - lightrag - DEBUG - Upserted node with entity_id 'Conversation' and properties: {'entity_id': 'Conversation', 'entity_type': 'event', 'description': 'The conversation is the context in which the speaker and Naveen are mentioned.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:37,998 - lightrag - DEBUG - Result: {'keywords': 'personal information, data storage', 'weight': 8.0, 'description': "Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:37,998 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'personal information, data storage', 'weight': 8.0, 'description': "Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:38,271 - lightrag - DEBUG - Upserted edge from 'Chatbot' to 'Conversation'with properties: {'weight': 8.0, 'description': 'The chatbot is facilitating the conversation.', 'keywords': 'conversation facilitation, chatbot role', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:38,370 - lightrag - DEBUG - Upserted edge from 'Chatbot' to 'I'with properties: {'weight': 9.0, 'description': 'The speaker is likely a chatbot or AI assistant.', 'keywords': 'chatbot identity, speaker role', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:38,372 - lightrag - DEBUG - Upserted edge from 'Conversation' to 'Naveen'with properties: {'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'keywords': 'conversation mention, person reference', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:38,375 - lightrag - DEBUG - Upserted edge from 'Knowledge Base' to 'Rahul'with properties: {'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:38,447 - lightrag - DEBUG - Upserted edge from 'Knowledge Base' to 'Naveen'with properties: {'weight': 10.0, 'description': 'Naveen is not mentioned in the Knowledge Base.', 'keywords': 'information absence, knowledge gap', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:38,449 - lightrag - DEBUG - Upserted edge from 'Conversation' to 'I'with properties: {'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'keywords': 'conversation participation, speaker role', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:38,514 - lightrag - INFO - Extracted 6 entities and 6 relationships (deduplicated)
+2025-03-15 13:29:38,514 - lightrag - DEBUG - New entities:[{'entity_id': 'Naveen', 'entity_type...
+2025-03-15 13:29:38,515 - lightrag - DEBUG - New relationships:[{'src_id': 'Knowledge Base', 't...
+2025-03-15 13:29:38,515 - lightrag - INFO - Inserting 6 to entities
+2025-03-15 13:29:38,630 - lightrag - INFO - Process 9980 reloading entities due to update by another process
+2025-03-15 13:29:38,632 - lightrag - INFO - Inserting 6 to relationships
+2025-03-15 13:29:38,752 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:29:38,754 - lightrag - INFO - Process 9980 doc status writting 7 records to doc_status
+2025-03-15 13:29:38,756 - lightrag - INFO - Completed batch 1 of 1.
+2025-03-15 13:29:38,760 - lightrag - INFO - Process 9980 KV writting 7 records to full_docs
+2025-03-15 13:29:38,764 - lightrag - INFO - Process 9980 KV writting 7 records to text_chunks
+2025-03-15 13:29:38,767 - lightrag - INFO - Process 9980 KV writting 25 records to llm_response_cache
+2025-03-15 13:29:38,782 - lightrag - INFO - All Insert done
+2025-03-15 13:29:38,783 - lightrag - INFO - Document processing pipeline completed
+2025-03-15 13:29:45,948 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-15 13:29:45,948 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-15 13:29:45,949 - lightrag - DEBUG - [kg_query]Prompt Tokens: 416
+2025-03-15 13:29:46,253 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:29:46,253 - lightrag - DEBUG - High-level keywords: ['Personal relationships', 'Identity']
+2025-03-15 13:29:46,254 - lightrag - DEBUG - Low-level  keywords: ['Friend', 'Name']
+2025-03-15 13:29:46,254 - lightrag - INFO - Process 9980 buidling query context...
+2025-03-15 13:29:46,254 - lightrag - INFO - Query edges: Personal relationships, Identity, top_k: 60, cosine: 0.2
+2025-03-15 13:29:46,355 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,360 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,361 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,363 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,365 - lightrag - DEBUG - Result: {'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:46,365 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:29:46,366 - lightrag - DEBUG - Result: {'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:46,366 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:29:46,368 - lightrag - DEBUG - Result: {'keywords': 'conversation mention, person reference', 'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:46,368 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation mention, person reference', 'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:46,368 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,381 - lightrag - DEBUG - Result: {'keywords': 'financial management, household expenses', 'weight': 7.0, 'description': 'Household expenses refer to costs incurred by a group of people living together.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,381 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, household expenses', 'weight': 7.0, 'description': 'Household expenses refer to costs incurred by a group of people living together.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,407 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,410 - lightrag - DEBUG - Result: {'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,411 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,413 - lightrag - DEBUG - Result: {'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,414 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,417 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,427 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,428 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:29:46,434 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,440 - lightrag - DEBUG - Result: {'keywords': 'conversation participation, speaker role', 'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:46,440 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation participation, speaker role', 'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:29:46,443 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,445 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,447 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,449 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,464 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,489 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,507 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,526 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,565 - lightrag - DEBUG - Truncate chunks from 4 to 4 (max tokens:4000)
+2025-03-15 13:29:46,599 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Individual refers to a single person, often with their own financial situation and goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Individual'}
+2025-03-15 13:29:46,600 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:29:46,600 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Income refers to the money earned by an individual or household.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Income'}
+2025-03-15 13:29:46,603 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:29:46,605 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Expenses refer to costs incurred by an individual or household, including daily expenses.<SEP>Expenses refer to the costs incurred by an individual or household.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Expenses'}
+2025-03-15 13:29:46,612 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial concepts are essential for managing personal finances effectively, including categories such as personal finances, financial planning, budgeting, expenses, savings, and long-term financial goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Financial Concepts'}
+2025-03-15 13:29:46,614 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,615 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,616 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Naveen is a person mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Naveen'}
+2025-03-15 13:29:46,617 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-15 13:29:46,619 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The conversation is the context in which the speaker and Naveen are mentioned.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Conversation'}
+2025-03-15 13:29:46,623 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The User is a general term for individuals interacting with the Assistant.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'User'}
+2025-03-15 13:29:46,623 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'The speaker of the conversation, likely a chatbot or AI assistant.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'I'}
+2025-03-15 13:29:46,628 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,629 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'geo', 'description': 'Household refers to a group of people living together, often sharing expenses and financial resources.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Household'}
+2025-03-15 13:29:46,635 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,635 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,636 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,636 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,639 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,643 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:46,665 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:47,176 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:47,198 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:29:47,199 - lightrag - DEBUG - Truncate entities from 12 to 12 (max tokens:4000)
+2025-03-15 13:29:47,201 - lightrag - INFO - Global query uses 12 entites, 8 relations, 4 chunks
+2025-03-15 13:29:47,203 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1515
+2025-03-15 13:29:56,645 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:29:56,646 - lightrag - INFO - Process 9980 KV writting 27 records to llm_response_cache
+2025-03-15 13:29:56,652 - lightrag - INFO - No new unique documents were found.
+2025-03-15 13:29:56,652 - lightrag - INFO - No documents to process
+2025-03-15 13:30:15,683 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-15 13:30:15,683 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-15 13:30:15,684 - lightrag - DEBUG - [kg_query]Prompt Tokens: 420
+2025-03-15 13:30:16,113 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:30:16,113 - lightrag - DEBUG - High-level keywords: ['Personal information', 'Friendship']
+2025-03-15 13:30:16,114 - lightrag - DEBUG - Low-level  keywords: ['Name', 'Om']
+2025-03-15 13:30:16,114 - lightrag - INFO - Process 9980 buidling query context...
+2025-03-15 13:30:16,114 - lightrag - INFO - Query edges: Personal information, Friendship, top_k: 60, cosine: 0.2
+2025-03-15 13:30:16,485 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,486 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,487 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,489 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,490 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,492 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,494 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,548 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,549 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,549 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,556 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,557 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,560 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,562 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,642 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,645 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,654 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,707 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,708 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,718 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,837 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,841 - lightrag - DEBUG - Result: {'keywords': 'conversation mention, person reference', 'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:30:16,842 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation mention, person reference', 'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:30:16,842 - lightrag - DEBUG - Result: {'keywords': 'information provision, knowledge source', 'weight': 9.0, 'description': 'The Response is generated from the Knowledge Base.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,844 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information provision, knowledge source', 'weight': 9.0, 'description': 'The Response is generated from the Knowledge Base.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,845 - lightrag - DEBUG - Result: {'keywords': 'user interaction, assistance', 'weight': 8.0, 'description': 'Rahul is interacting with the Assistant to get answers.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,845 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user interaction, assistance', 'weight': 8.0, 'description': 'Rahul is interacting with the Assistant to get answers.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,872 - lightrag - DEBUG - Result: {'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:30:16,873 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:30:16,874 - lightrag - DEBUG - Result: {'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:30:16,876 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:30:16,878 - lightrag - DEBUG - Result: {'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,879 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,880 - lightrag - DEBUG - Result: {'keywords': 'conversation participation, speaker role', 'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:30:16,883 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation participation, speaker role', 'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:30:16,886 - lightrag - DEBUG - Result: {'keywords': 'AI response, information provision', 'weight': 9.0, 'description': 'The Assistant is providing a response.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,888 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'AI response, information provision', 'weight': 9.0, 'description': 'The Assistant is providing a response.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:30:16,890 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-15 13:30:16,892 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-15 13:30:16,892 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:30:16,893 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:30:16,895 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,897 - lightrag - DEBUG - Result: {'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:30:16,898 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:30:16,907 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:16,986 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,080 - lightrag - DEBUG - Result: {'keywords': 'conversation facilitation, chatbot role', 'weight': 8.0, 'description': 'The chatbot is facilitating the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:30:17,080 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation facilitation, chatbot role', 'weight': 8.0, 'description': 'The chatbot is facilitating the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:30:17,096 - lightrag - DEBUG - Truncate chunks from 5 to 5 (max tokens:4000)
+2025-03-15 13:30:17,158 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-15 13:30:17,164 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:30:17,183 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,185 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Naveen is a person mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Naveen'}
+2025-03-15 13:30:17,189 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,194 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:30:17,197 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,198 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The User is a general term for individuals interacting with the Assistant.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'User'}
+2025-03-15 13:30:17,199 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The Response is the action of the Assistant providing an answer.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Response'}
+2025-03-15 13:30:17,200 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-15 13:30:17,201 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,202 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,203 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,204 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'organization', 'description': 'The chatbot is the entity responsible for facilitating the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Chatbot'}
+2025-03-15 13:30:17,205 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,207 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,209 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Individual refers to a single person, often with their own financial situation and goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Individual'}
+2025-03-15 13:30:17,211 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,212 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial concepts are essential for managing personal finances effectively, including categories such as personal finances, financial planning, budgeting, expenses, savings, and long-term financial goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Financial Concepts'}
+2025-03-15 13:30:17,214 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,219 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The conversation is the context in which the speaker and Naveen are mentioned.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Conversation'}
+2025-03-15 13:30:17,222 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': "The Assistant is the AI responding to Rahul's queries.", 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Assistant'}
+2025-03-15 13:30:17,224 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'The speaker of the conversation, likely a chatbot or AI assistant.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'I'}
+2025-03-15 13:30:17,244 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Income refers to the money earned by an individual or household.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Income'}
+2025-03-15 13:30:17,700 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,700 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,702 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,706 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:30:17,707 - lightrag - DEBUG - Truncate entities from 14 to 14 (max tokens:4000)
+2025-03-15 13:30:17,707 - lightrag - INFO - Global query uses 14 entites, 12 relations, 5 chunks
+2025-03-15 13:30:17,709 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1821
+2025-03-15 13:30:20,210 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:30:20,211 - lightrag - INFO - Process 9980 KV writting 29 records to llm_response_cache
+2025-03-15 13:30:20,219 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:30:20,219 - lightrag - INFO - Process 9980 doc status writting 8 records to doc_status
+2025-03-15 13:30:20,221 - lightrag - INFO - Stored 1 new unique documents
+2025-03-15 13:30:20,222 - lightrag - INFO - Number of batches to process: 1.
+2025-03-15 13:30:20,223 - lightrag - INFO - Start processing batch 1 of 1.
+2025-03-15 13:30:20,223 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:30:20,225 - lightrag - INFO - Process 9980 doc status writting 8 records to doc_status
+2025-03-15 13:30:20,227 - lightrag - INFO - Inserting 1 to chunks
+2025-03-15 13:30:20,228 - lightrag - INFO - Inserting 1 records to full_docs
+2025-03-15 13:30:20,230 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-03-15 13:30:20,293 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-15 13:30:47,110 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:30:47,111 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-15 13:31:17,439 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:31:17,440 - lightrag - INFO -   Chunk 1/1: extracted 5 entities and 4 relationships (deduplicated)
+2025-03-15 13:31:17,741 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'The speaker of the conversation, likely a chatbot or AI assistant.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'I'}
+2025-03-15 13:31:17,745 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:31:17,748 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:31:17,894 - lightrag - DEBUG - Upserted node with entity_id 'Rahul' and properties: {'entity_id': 'Rahul', 'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:31:17,895 - lightrag - DEBUG - Upserted node with entity_id 'I' and properties: {'entity_id': 'I', 'entity_type': 'person', 'description': 'The speaker is a person who is having a conversation and clarifying information.<SEP>The speaker of the conversation, likely a chatbot or AI assistant.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:31:17,896 - lightrag - DEBUG - Upserted node with entity_id 'You' and properties: {'entity_id': 'You', 'entity_type': 'person', 'description': 'You is a person who is being addressed and is having a conversation.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:31:17,939 - lightrag - DEBUG - Upserted node with entity_id 'Om' and properties: {'entity_id': 'Om', 'entity_type': 'person', 'description': 'Om is a person mentioned as a friend.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:31:17,943 - lightrag - DEBUG - Upserted node with entity_id 'Knowledge Base' and properties: {'entity_id': 'Knowledge Base', 'entity_type': 'organization', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.<SEP>The Knowledge Base is a repository of information that contains data about Rahul.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:31:18,332 - lightrag - DEBUG - Result: {'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:31:18,333 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information presence, knowledge inclusion<SEP>personal information, data storage', 'weight': 24.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:31:18,624 - lightrag - DEBUG - Upserted edge from 'Om' to 'You'with properties: {'weight': 7.0, 'description': 'Om is a friend of the person being addressed.', 'keywords': 'personal relationships, friendship', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:31:18,688 - lightrag - DEBUG - Upserted edge from 'I' to 'You'with properties: {'weight': 9.0, 'description': 'The speaker is having a conversation with the person being addressed.', 'keywords': 'conversation, communication', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:31:18,694 - lightrag - DEBUG - Upserted edge from 'Knowledge Base' to 'Rahul'with properties: {'weight': 32.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'keywords': 'information presence, knowledge inclusion<SEP>information repository, personal data<SEP>personal information, data storage', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:31:18,773 - lightrag - DEBUG - Upserted edge from 'I' to 'Rahul'with properties: {'weight': 6.0, 'description': 'The speaker is clarifying information about Rahul.', 'keywords': 'information clarification, personal data', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:31:18,841 - lightrag - INFO - Extracted 5 entities and 4 relationships (deduplicated)
+2025-03-15 13:31:18,841 - lightrag - DEBUG - New entities:[{'entity_id': 'Rahul', 'entity_type'...
+2025-03-15 13:31:18,842 - lightrag - DEBUG - New relationships:[{'src_id': 'Knowledge Base', 't...
+2025-03-15 13:31:18,842 - lightrag - INFO - Inserting 5 to entities
+2025-03-15 13:31:18,942 - lightrag - INFO - Inserting 4 to relationships
+2025-03-15 13:31:19,037 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:31:19,037 - lightrag - INFO - Process 9980 doc status writting 8 records to doc_status
+2025-03-15 13:31:19,039 - lightrag - INFO - Completed batch 1 of 1.
+2025-03-15 13:31:19,040 - lightrag - INFO - Process 9980 KV writting 8 records to full_docs
+2025-03-15 13:31:19,042 - lightrag - INFO - Process 9980 KV writting 8 records to text_chunks
+2025-03-15 13:31:19,047 - lightrag - INFO - Process 9980 KV writting 31 records to llm_response_cache
+2025-03-15 13:31:19,063 - lightrag - INFO - All Insert done
+2025-03-15 13:31:19,063 - lightrag - INFO - Document processing pipeline completed
+2025-03-15 13:31:37,812 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-15 13:31:37,813 - lightrag - INFO - No new unique documents were found.
+2025-03-15 13:31:37,814 - lightrag - INFO - No documents to process
+2025-03-15 13:32:28,554 - lightrag - DEBUG - Non-embedding cached hit(mode:global type:query)
+2025-03-15 13:32:28,555 - lightrag - INFO - No new unique documents were found.
+2025-03-15 13:32:28,556 - lightrag - INFO - No documents to process
+2025-03-15 13:33:04,273 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:query)
+2025-03-15 13:33:04,274 - lightrag - DEBUG - Non-embedding cached missed(mode:global type:keywords)
+2025-03-15 13:33:04,274 - lightrag - DEBUG - [kg_query]Prompt Tokens: 420
+2025-03-15 13:33:04,778 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:33:04,779 - lightrag - DEBUG - High-level keywords: ['Personal information', 'Memory recall']
+2025-03-15 13:33:04,779 - lightrag - DEBUG - Low-level  keywords: ['Friend', 'Name', 'Earlier conversation']
+2025-03-15 13:33:04,780 - lightrag - INFO - Process 9980 buidling query context...
+2025-03-15 13:33:04,780 - lightrag - INFO - Query edges: Personal information, Memory recall, top_k: 60, cosine: 0.2
+2025-03-15 13:33:05,085 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,086 - lightrag - DEBUG - Result: {'keywords': 'information presence, knowledge inclusion<SEP>information repository, personal data<SEP>personal information, data storage', 'weight': 32.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:33:05,087 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information presence, knowledge inclusion<SEP>information repository, personal data<SEP>personal information, data storage', 'weight': 32.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:33:05,087 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-15 13:33:05,088 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Budgeting is essential for managing personal finances effectively.', 'source_id': 'chunk-811da763d68ad10db6f29b2e30c32087'}
+2025-03-15 13:33:05,088 - lightrag - DEBUG - Result: {'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:33:05,088 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, individual finance', 'weight': 9.0, 'description': "An individual's personal finances refer to their financial situation and goals.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:33:05,089 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,158 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,159 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,160 - lightrag - DEBUG - Result: {'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:33:05,160 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, income', 'weight': 8.0, 'description': 'Personal finances involve managing income.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:33:05,163 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,169 - lightrag - DEBUG - Result: {'keywords': 'information provision, knowledge source', 'weight': 9.0, 'description': 'The Response is generated from the Knowledge Base.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,170 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information provision, knowledge source', 'weight': 9.0, 'description': 'The Response is generated from the Knowledge Base.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,171 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,172 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,175 - lightrag - DEBUG - Result: {'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:33:05,176 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'financial management, personal finance', 'weight': 16.0, 'description': 'Financial concepts include personal finances as a key category.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d'}
+2025-03-15 13:33:05,180 - lightrag - DEBUG - Result: {'keywords': 'user interaction, assistance', 'weight': 8.0, 'description': 'Rahul is interacting with the Assistant to get answers.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,181 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user interaction, assistance', 'weight': 8.0, 'description': 'Rahul is interacting with the Assistant to get answers.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,184 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,189 - lightrag - DEBUG - Result: {'keywords': 'conversation mention, person reference', 'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:33:05,190 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation mention, person reference', 'weight': 6.0, 'description': 'Naveen is mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:33:05,193 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,197 - lightrag - DEBUG - Result: {'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,198 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'user classification, individual instance', 'weight': 6.0, 'description': 'Rahul is an instance of a User.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,255 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,257 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,258 - lightrag - DEBUG - Result: {'keywords': 'information clarification, personal data', 'weight': 6.0, 'description': 'The speaker is clarifying information about Rahul.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:33:05,258 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information clarification, personal data', 'weight': 6.0, 'description': 'The speaker is clarifying information about Rahul.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:33:05,259 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,259 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,260 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,261 - lightrag - DEBUG - Result: {'keywords': 'AI response, information provision', 'weight': 9.0, 'description': 'The Assistant is providing a response.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,261 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'AI response, information provision', 'weight': 9.0, 'description': 'The Assistant is providing a response.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:05,263 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,264 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,265 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,265 - lightrag - DEBUG - Result: {'keywords': 'conversation, communication', 'weight': 9.0, 'description': 'The speaker is having a conversation with the person being addressed.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:33:05,265 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation, communication', 'weight': 9.0, 'description': 'The speaker is having a conversation with the person being addressed.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b'}
+2025-03-15 13:33:05,266 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,266 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,267 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,268 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,272 - lightrag - DEBUG - Result: {'keywords': 'conversation participation, speaker role', 'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:33:05,273 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'conversation participation, speaker role', 'weight': 8.0, 'description': 'The speaker is participating in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2'}
+2025-03-15 13:33:05,286 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,356 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,357 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,363 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,364 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,389 - lightrag - DEBUG - Truncate chunks from 6 to 6 (max tokens:4000)
+2025-03-15 13:33:05,462 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,463 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,463 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,464 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,465 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,465 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,466 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,467 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,468 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,473 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,474 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,474 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,475 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,475 - lightrag - DEBUG - Neo4j query node degree for {node_id} return: {degree}
+2025-03-15 13:33:05,479 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': "Personal finances refer to an individual's financial situation, including income, expenses, and savings.", 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Personal Finances'}
+2025-03-15 13:33:05,489 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The conversation is the context in which the speaker and Naveen are mentioned.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Conversation'}
+2025-03-15 13:33:05,495 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Individual refers to a single person, often with their own financial situation and goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Individual'}
+2025-03-15 13:33:05,498 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Income refers to the money earned by an individual or household.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Income'}
+2025-03-15 13:33:05,500 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:33:05,501 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'The User is a general term for individuals interacting with the Assistant.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'User'}
+2025-03-15 13:33:05,504 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': "The Assistant is the AI responding to Rahul's queries.", 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Assistant'}
+2025-03-15 13:33:05,504 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The Response is the action of the Assistant providing an answer.', 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Response'}
+2025-03-15 13:33:05,505 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'The speaker is a person who is having a conversation and clarifying information.<SEP>The speaker of the conversation, likely a chatbot or AI assistant.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'I'}
+2025-03-15 13:33:05,507 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'You is a person who is being addressed and is having a conversation.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b', 'entity_id': 'You'}
+2025-03-15 13:33:05,509 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'organization', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.<SEP>The Knowledge Base is a repository of information that contains data about Rahul.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:33:05,510 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Naveen is a person mentioned in the conversation.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Naveen'}
+2025-03-15 13:33:05,512 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Budgeting is a crucial step in financial planning, involving tracking expenses and allocating resources.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d<SEP>chunk-811da763d68ad10db6f29b2e30c32087', 'entity_id': 'Budgeting'}
+2025-03-15 13:33:05,513 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'category', 'description': 'Financial concepts are essential for managing personal finances effectively, including categories such as personal finances, financial planning, budgeting, expenses, savings, and long-term financial goals.', 'source_id': 'chunk-efcb62fc2c95750bca95a74bea678b3d', 'entity_id': 'Financial Concepts'}
+2025-03-15 13:33:05,515 - lightrag - DEBUG - Truncate entities from 14 to 14 (max tokens:4000)
+2025-03-15 13:33:05,516 - lightrag - INFO - Global query uses 14 entites, 13 relations, 6 chunks
+2025-03-15 13:33:05,520 - lightrag - DEBUG - [kg_query]Prompt Tokens: 1982
+2025-03-15 13:33:06,158 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:33:06,158 - lightrag - INFO - Process 9980 KV writting 33 records to llm_response_cache
+2025-03-15 13:33:06,163 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:33:06,164 - lightrag - INFO - Process 9980 doc status writting 9 records to doc_status
+2025-03-15 13:33:06,165 - lightrag - INFO - Stored 1 new unique documents
+2025-03-15 13:33:06,165 - lightrag - INFO - Number of batches to process: 1.
+2025-03-15 13:33:06,166 - lightrag - INFO - Start processing batch 1 of 1.
+2025-03-15 13:33:06,167 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:33:06,167 - lightrag - INFO - Process 9980 doc status writting 9 records to doc_status
+2025-03-15 13:33:06,168 - lightrag - INFO - Inserting 1 to chunks
+2025-03-15 13:33:06,168 - lightrag - INFO - Inserting 1 records to full_docs
+2025-03-15 13:33:06,169 - lightrag - INFO - Inserting 1 records to text_chunks
+2025-03-15 13:33:06,214 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-15 13:33:07,305 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:33:07,306 - lightrag - DEBUG - Non-embedding cached missed(mode:default type:extract)
+2025-03-15 13:33:34,413 - lightrag - INFO - Inserting 1 records to llm_response_cache
+2025-03-15 13:33:34,414 - lightrag - INFO -   Chunk 1/1: extracted 7 entities and 7 relationships (deduplicated)
+2025-03-15 13:33:34,598 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'event', 'description': 'The conversation is the context in which the speaker and Naveen are mentioned.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2', 'entity_id': 'Conversation'}
+2025-03-15 13:33:34,600 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'organization', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.<SEP>The Knowledge Base is a repository of information that contains data about Rahul.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Knowledge Base'}
+2025-03-15 13:33:34,602 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Rahul'}
+2025-03-15 13:33:34,611 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': "The Assistant is the AI responding to Rahul's queries.", 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0', 'entity_id': 'Assistant'}
+2025-03-15 13:33:34,616 - lightrag - DEBUG - Neo4j query node MATCH (n:base {entity_id: $entity_id}) RETURN n return: {'entity_type': 'person', 'description': 'Om is a person mentioned as a friend.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b', 'entity_id': 'Om'}
+2025-03-15 13:33:34,749 - lightrag - DEBUG - Upserted node with entity_id 'Knowledge Base' and properties: {'entity_id': 'Knowledge Base', 'entity_type': 'category', 'description': 'The Knowledge Base is a collection of information used for reference.<SEP>The Knowledge Base is a collection of information used to provide responses to user queries.<SEP>The Knowledge Base is a repository of information that provides details about individuals.<SEP>The Knowledge Base is a repository of information that contains data about Rahul.<SEP>The Knowledge Base is a repository of information used to provide context and answers.', 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-3309c14d2896bff372fc64434d7393a4<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:34,753 - lightrag - DEBUG - Upserted node with entity_id 'Context' and properties: {'entity_id': 'Context', 'entity_type': 'category', 'description': 'Context refers to the background information and clarification provided by the Assistant.', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:34,757 - lightrag - DEBUG - Upserted node with entity_id 'Information' and properties: {'entity_id': 'Information', 'entity_type': 'category', 'description': 'Information refers to the knowledge and data provided by the Assistant from the Knowledge Base.', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:34,759 - lightrag - DEBUG - Upserted node with entity_id 'Conversation' and properties: {'entity_id': 'Conversation', 'entity_type': 'event', 'description': 'The conversation is the context in which the Assistant provides information and clarifies context.<SEP>The conversation is the context in which the speaker and Naveen are mentioned.', 'source_id': 'chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:34,765 - lightrag - DEBUG - Upserted node with entity_id 'Assistant' and properties: {'entity_id': 'Assistant', 'entity_type': 'person', 'description': "The Assistant is a conversational AI that provides context and clarifies information from the Knowledge Base.<SEP>The Assistant is the AI responding to Rahul's queries.", 'source_id': 'chunk-c2d0c4170a8341586896ac2d8a5788e0<SEP>chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:34,767 - lightrag - DEBUG - Upserted node with entity_id 'Om' and properties: {'entity_id': 'Om', 'entity_type': 'person', 'description': 'Om is a person mentioned as a friend.<SEP>Om is a person mentioned in the conversation, but not found in the Knowledge Base.', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:34,769 - lightrag - DEBUG - Upserted node with entity_id 'Rahul' and properties: {'entity_id': 'Rahul', 'entity_type': 'person', 'description': 'Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is a person mentioned in the text, whose name is stored in the Knowledge Base.<SEP>Rahul is a person mentioned in the text.<SEP>Rahul is the person being addressed, likely a user seeking assistance.', 'source_id': 'chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-3309c14d2896bff372fc64434d7393a4<SEP>chunk-c2d0c4170a8341586896ac2d8a5788e0'}
+2025-03-15 13:33:35,007 - lightrag - DEBUG - Result: {'keywords': 'information presence, knowledge inclusion<SEP>information repository, personal data<SEP>personal information, data storage', 'weight': 32.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:33:35,007 - lightrag - DEBUG - get_edge:query:
+                MATCH (start:base {entity_id: $source_entity_id})-[r]-(end:base {entity_id: $target_entity_id})
+                RETURN properties(r) as edge_properties
+                :result:{'keywords': 'information presence, knowledge inclusion<SEP>information repository, personal data<SEP>personal information, data storage', 'weight': 32.0, 'description': "Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f'}
+2025-03-15 13:33:35,463 - lightrag - DEBUG - Upserted edge from 'Context' to 'Conversation'with properties: {'weight': 8.0, 'description': 'The conversation involves the provision of context and clarification by the Assistant.', 'keywords': 'conversational context, information provision', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,464 - lightrag - DEBUG - Upserted edge from 'Information' to 'Knowledge Base'with properties: {'weight': 9.0, 'description': 'The Knowledge Base contains information used to provide context and answers.', 'keywords': 'knowledge repository, information storage', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,466 - lightrag - DEBUG - Upserted edge from 'Knowledge Base' to 'Rahul'with properties: {'weight': 46.0, 'description': "Rahul is a person mentioned in the Knowledge Base.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul is mentioned in the Knowledge Base as a person.<SEP>Rahul's name is stored in the Knowledge Base, indicating a connection between the person and the organization.", 'keywords': 'information presence, knowledge inclusion<SEP>information repository, personal data<SEP>person mention, knowledge repository<SEP>personal information, data storage', 'source_id': 'chunk-baf6e76742b59216591a256c03b5a08b<SEP>chunk-1de0775a9d20193034078f1f520584f2<SEP>chunk-ea164008598a07c83acfef423f2f830f<SEP>chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,547 - lightrag - DEBUG - Upserted edge from 'Assistant' to 'Knowledge Base'with properties: {'weight': 16.0, 'description': 'The Assistant uses the Knowledge Base to provide information and clarify context.', 'keywords': 'information retrieval, knowledge source', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,615 - lightrag - DEBUG - Upserted edge from 'Assistant' to 'Information'with properties: {'weight': 8.0, 'description': 'The Assistant provides information from the Knowledge Base.', 'keywords': 'information provision, knowledge retrieval', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,680 - lightrag - DEBUG - Upserted edge from 'Assistant' to 'Conversation'with properties: {'weight': 9.0, 'description': 'The Assistant provides context and clarifies information within the conversation.', 'keywords': 'conversational AI, context provision', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,763 - lightrag - DEBUG - Upserted edge from 'Assistant' to 'Om'with properties: {'weight': 12.0, 'description': 'The Assistant clarified that Om is not mentioned in the Knowledge Base.', 'keywords': 'person mention, knowledge clarification', 'source_id': 'chunk-3309c14d2896bff372fc64434d7393a4'}
+2025-03-15 13:33:35,832 - lightrag - INFO - Extracted 7 entities and 7 relationships (deduplicated)
+2025-03-15 13:33:35,834 - lightrag - DEBUG - New entities:[{'entity_id': 'Assistant', 'entity_t...
+2025-03-15 13:33:35,835 - lightrag - DEBUG - New relationships:[{'src_id': 'Assistant', 'tgt_id...
+2025-03-15 13:33:35,836 - lightrag - INFO - Inserting 7 to entities
+2025-03-15 13:33:36,061 - lightrag - INFO - Inserting 7 to relationships
+2025-03-15 13:33:36,264 - lightrag - INFO - Inserting 1 records to doc_status
+2025-03-15 13:33:36,264 - lightrag - INFO - Process 9980 doc status writting 9 records to doc_status
+2025-03-15 13:33:36,265 - lightrag - INFO - Completed batch 1 of 1.
+2025-03-15 13:33:36,266 - lightrag - INFO - Process 9980 KV writting 9 records to full_docs
+2025-03-15 13:33:36,267 - lightrag - INFO - Process 9980 KV writting 9 records to text_chunks
+2025-03-15 13:33:36,268 - lightrag - INFO - Process 9980 KV writting 35 records to llm_response_cache
+2025-03-15 13:33:36,284 - lightrag - INFO - All Insert done
+2025-03-15 13:33:36,285 - lightrag - INFO - Document processing pipeline completed
