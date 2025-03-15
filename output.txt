@@ -4,3 +4,85 @@ Mode global: **About Me**
 ------------
 
 I am the **AI Assistant**, a digital entity designed to provide information and assist with queries based on the provided **Knowledge Base**. I don't have a physical existence or a personal identity, and I exist solely to help users like you with their questions.
+
+Query: who are you
+Mode global: **About Me**
+------------
+
+I am the **AI Assistant**, a digital entity designed to provide information and assist with queries based on the provided **Knowledge Base**. I don't have a physical existence or a personal identity, and I exist solely to help users like you with their questions.
+
+Query: who are you
+Mode global: Sorry, I'm not able to provide an answer to that question.[no-context]
+
+Query: what is finance
+Mode: global: **Financial Concepts**
+
+Financial concepts are essential for managing personal finances effectively. Here are some key categories and their descriptions:
+
+* **Personal Finances**: An individual's financial situation, including income, expenses, and savings.
+* **Financial Planning**: A process of managing personal finances effectively, involving budgeting, saving, and investing.
+* **Budgeting**: A crucial step in financial planning, involving tracking expenses and allocating resources.
+* **Expenses**: Costs incurred by an individual or household, including daily expenses.
+* **Savings**: The amount of money set aside for future use.
+* **Long-term Financial Goals**: Objectives an individual wants to achieve in the future, such as retirement or buying a house.
+
+These concepts are interconnected and play a vital role in achieving financial stability and security.
+
+Query: hey
+Mode: global: Sorry, I'm not able to provide an answer to that question.[no-context]
+
+Query: how do i improve my financial planning
+Mode: global: **Improving Financial Planning**
+
+To improve your financial planning, consider the following steps:
+
+* **Create a Budget**: Track your income and expenses to understand your spending patterns. Allocate your resources effectively, and make adjustments as needed.
+* **Set Financial Goals**: Identify your short-term and long-term financial objectives, such as saving for a specific purpose or achieving financial stability.
+* **Prioritize Needs over Wants**: Distinguish between necessary expenses and leisure activities. Ensure you're allocating sufficient funds to essential expenses before spending on discretionary items.
+* **Build an Emergency Fund**: Set aside 3-6 months' worth of expenses in an easily accessible savings account. This fund will help you cover unexpected expenses or financial emergencies.
+* **Use Digital Tools**: Leverage digital tools, such as budgeting apps or spreadsheets, to track your expenses, create a budget, and set reminders for bill payments.
+* **Review and Adjust**: Regularly review your budget and financial plan to ensure you're on track to meet your goals. Make adjustments as needed to stay on course.
+* **Consider Long-term Goals**: Factor in long-term financial objectives, such as retirement or buying a house, into your financial planning.
+* **Seek Professional Advice**: If needed, consult a financial advisor or planner to receive personalized guidance on improving your financial planning.
+
+Remember, effective financial planning is a continuous process that requires regular monitoring and adjustments. By following these steps, you can improve your financial planning and achieve greater financial stability and security.
+
+Query: how do i improve my financial planning
+Mode: global: **Improving Financial Planning**
+
+To improve your financial planning, consider the following steps:
+
+* **Create a Budget**: Track your income and expenses to understand your spending patterns. Allocate your resources effectively, and make adjustments as needed.
+* **Set Financial Goals**: Identify your short-term and long-term financial objectives, such as saving for a specific purpose or achieving financial stability.
+* **Prioritize Needs over Wants**: Distinguish between necessary expenses and leisure activities. Ensure you're allocating sufficient funds to essential expenses before spending on discretionary items.
+* **Build an Emergency Fund**: Set aside 3-6 months' worth of expenses in an easily accessible savings account. This fund will help you cover unexpected expenses or financial emergencies.
+* **Use Digital Tools**: Leverage digital tools, such as budgeting apps or spreadsheets, to track your expenses, create a budget, and set reminders for bill payments.
+* **Review and Adjust**: Regularly review your budget and financial plan to ensure you're on track to meet your goals. Make adjustments as needed to stay on course.
+* **Consider Long-term Goals**: Factor in long-term financial objectives, such as retirement or buying a house, into your financial planning.
+* **Seek Professional Advice**: If needed, consult a financial advisor or planner to receive personalized guidance on improving your financial planning.
+
+Remember, effective financial planning is a continuous process that requires regular monitoring and adjustments. By following these steps, you can improve your financial planning and achieve greater financial stability and security.
+
+Query: my name is rahul keep it in mind
+Mode: global: Hello Rahul! I'm happy to assist you with any questions you may have. Please feel free to ask me anything, and I'll do my best to provide a concise and helpful response based on the provided Knowledge Base.
+
+Query: what is my name?
+Mode: global: According to the Knowledge Base, your name is **Rahul**.
+
+Query: my friend name is naveen
+Mode: global: I'm happy to chat with you, but I don't see any information about Naveen in the provided Knowledge Base. The Knowledge Base only mentions Rahul as a person. If you have any questions or topics you'd like to discuss, I'm here to help!
+
+Query: what is my friends name
+Mode: global: According to the Knowledge Base, your name is **Rahul**.
+
+Query: my friends name is om keep it in mind 
+Mode: global: I've taken note that your friend's name is Om. However, I'd like to clarify that the Knowledge Base only mentions Rahul as a person, not Om. If you have any questions or topics you'd like to discuss, I'm here to help!
+
+Query: what is my friends name
+Mode: global: According to the Knowledge Base, your name is **Rahul**.
+
+Query: what is my friends name
+Mode: global: According to the Knowledge Base, your name is **Rahul**.
+
+Query: what is my friends name that i mentioned earlier
+Mode: global: I apologize, but you didn't mention your friend's name earlier in this conversation. However, I can provide some context from the Knowledge Base. In one of the sources, it's mentioned that you mentioned a friend's name as "Om", but the Assistant clarified that the Knowledge Base only mentions "Rahul" as a person, not "Om".
